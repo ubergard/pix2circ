@@ -1,2 +1,2 @@
 # Pix2Circ
-It will create an approximation of this landscape by a set of superimposed circles
+It will create an approximation of a picture/file by a set of superimposed circles

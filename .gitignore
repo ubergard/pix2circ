@@ -1,3 +1,7 @@
+# Executebles should not be included
+# Same with build files
+
+*
+!*.*
 .vscode
 *.o
-*
