@@ -1,6 +1,6 @@
 
-# Running C++ 12
-CXX=g++
+# Running C++ 11
+CXX=g++-11
 run: circ_pix_counter data.dat
 	cat data.dat | ./circ_pix_counter
 
