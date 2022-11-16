@@ -44,8 +44,10 @@ int main() {
 
   // Make image instance 
   int name = 3;
+  int dims[2] = {len, wid};
+  std::string file_directory = "data2.dat";
 
-  Image image2(name, image[wid][len]);
-  image2.print_stuff();
+  Image image2(name, image[wid][len], file_directory);
+  //image2.print_stuff();
   return 0;
 }
