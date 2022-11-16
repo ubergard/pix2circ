@@ -9,7 +9,7 @@ Image::Image(int name, int image){
 }
 
 void Image::print_stuff(){
-  std::cout<<"Hello fokes" << " " << name;
+  std::cout<<"Hello fokes" << " " << this->name << "\n";
 }
 
 //void Image::print_image() {
@@ -20,6 +20,3 @@ void Image::print_stuff(){
 //  }
 //  std::cout << '\n';
 //}
-
-//}
-

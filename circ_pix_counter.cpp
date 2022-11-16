@@ -43,7 +43,7 @@ int main() {
   // std::cout << image[25][12] << '\n';i
 
   // Make image instance 
-int name = 1000;
+  int name = 3;
 
   Image image2(name, image[wid][len]);
   image2.print_stuff();
