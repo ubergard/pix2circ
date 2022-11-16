@@ -6,7 +6,7 @@
 
 #include "circle.h"
 
-#define PI 3.1415
+//#define PI 3.1415
 
 
 int main () 
@@ -49,6 +49,10 @@ int main ()
 
     // Check pixel
     //std::cout << image[25][12] << '\n';
+
+    // Print constant
+    double pi_val = std::numbers::pi;
+    std::cout << pi_val << '\n';
 
     return 0;
 }
