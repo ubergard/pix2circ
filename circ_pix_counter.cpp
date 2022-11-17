@@ -45,7 +45,7 @@ int main() {
   // Make image instance 
   std::string file_directory = "data.txt";
 
-  Image image2(image[wid][len], file_directory);
+  Image image2(file_directory);
   //image2.print_stuff();
   image2.print_dims();
   return 0;

@@ -6,7 +6,7 @@ class Image
 {
 public:
     Image();
-    Image(int image, std::string file_name);
+    Image(std::string file_name);
     
     void print_dims(); 
     void print_image();
@@ -16,7 +16,7 @@ public:
     void setimage(int image_val) {
       this->image = image_val;
       this->image_modefiable = image_val;}
-    //void set_modefiable_image(int image_mod_val) { this->image_modefiable = image_mod_val; }
+    // make this able to use the printed iamge in getimage
 
     int getimage() const {return this->image;}
     int get_modefiable_image() {return this->image_modefiable;}

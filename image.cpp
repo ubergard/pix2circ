@@ -5,8 +5,7 @@
 #include <string>
 #include <cassert>
 
-Image::Image(int image, std::string file_name){
-  this->setimage(image);
+Image::Image(std::string file_name){
   image_make(file_name);
 }
 
@@ -43,22 +42,21 @@ void Image::image_make(std::string file_name){
   std::cout << '\n' << file_name << '\n';
   find_dims(file_name);
   int pixels[this->dims[0]][this->dims[1]];
-
   std::fstream image_file;
   image_file.open(file_name, std::ios::in);
   std::string line;
   if (!image_file.is_open()) {abort();}
 
-  for (int y = 0; y < this->dims[0]; y++) {
+  for (int m = 0; m < this->dims[0]; m++) {
     std::getline(image_file, line);
-    for (int x = 0; x < this->dims[1]; x++) {
+    for (int n = 0; n < this->dims[1]; n++) {
       int num = 0;
-      pixels[x][y] = line[x];
+      pixels[m][n] = line[n];
     }
   }
   // Print image
-  for (int m = 0; m < this->dims[0]; m++) {
-    for (int n = 0; n < this->dims[1]; n++) {
+for (int m = 0; m < this->dims[0]; m++) {
+  for (int n = 0; n < this->dims[1]; n++) {
       std::cout << pixels[m][n] - 48;
     }
     std::cout << '\n';
