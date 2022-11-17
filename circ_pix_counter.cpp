@@ -43,11 +43,10 @@ int main() {
   // std::cout << image[25][12] << '\n';i
 
   // Make image instance 
-  int name = 3;
-  int dims[2] = {len, wid};
-  std::string file_directory = "data2.dat";
+  std::string file_directory = "data.txt";
 
-  Image image2(name, image[wid][len], file_directory);
+  Image image2(image[wid][len], file_directory);
   //image2.print_stuff();
+  image2.print_dims();
   return 0;
 }
