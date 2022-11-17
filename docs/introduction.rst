@@ -23,30 +23,23 @@ Our **method** to deal with the task at hand was ..... |br|
 
 blablabla
 
-**Flowchart of our main classes** |br|
+**Flowchart of our 3 main classes:** |br|
 
-.. image:: images/flowchart.png
-    :width: 500 px
+.. figure:: images/flowchart.*
+    :width: 550 px
     :height: 300 px
 
-**Image** class: |br|
-
- - imports the picture
- - extracts length and width
- - calculates the values needed 
-
-**Circle** class: |br|
-
- - Receive values
- - Sets values
-
-**Imageconverter** class: |br|
-
- - Sets the algorithms
- - Placement of circles
- - reads information from image
- - List of circles (objects) 
- 
++------------------+----------------------+----------------------+
+| Image            |  Imageconverter      |       Circle         |
++==================+======================+======================+
+| Imports picture  | Imports picture      | Receive values       |
++------------------+----------------------+----------------------+
+| Extracts length  | Placing circles      | Set values           |
++------------------+----------------------+----------------------+
+| Extracts width   | Reads image info     |                      |
++------------------+----------------------+----------------------+
+| Calculates values| List of circles      |                      | 
++------------------+----------------------+----------------------+
 
 
 
