@@ -22,12 +22,15 @@ The assignment is as follows:
 Our **method** to deal with the task at hand was ..... |br|
 
 blablabla
-
-**Flowchart of our 3 main classes:** |br|
+    
+    **Flowchart of our 3 main classes:**
 
 .. figure:: images/flowchart.*
     :width: 550 px
     :height: 300 px
+
+        
+
 
 +------------------+----------------------+----------------------+
 | Image            |  Imageconverter      |       Circle         |
@@ -40,8 +43,6 @@ blablabla
 +------------------+----------------------+----------------------+
 | Calculates values| List of circles      |                      | 
 +------------------+----------------------+----------------------+
-
-
 
 
 

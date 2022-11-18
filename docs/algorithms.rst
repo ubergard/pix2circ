@@ -3,12 +3,14 @@ Algorithms tested
 We have chosen and or created these alhorithms and blablabl |br|
 
 
-**Algorithm 1:** |br|
+Algorithm 1
+-----------------------
 nummer 1
 
 
 
-**Algorithm 2:** |br|
+Algorithm 2
+-----------------------
 nummer 2 
 
 
