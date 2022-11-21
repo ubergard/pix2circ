@@ -1,95 +1,37 @@
 Code documentation
 =====================
 
-
-    .. cpp:class:: Circle 
-    
-        *void* f(double) int 
-        tests testing 
-        test
-    
-
-
-
-Test:
-
-::
-
-
-    blablabl
-    Class: Circle
-        *void* f(double) int
-        x = 10
-        r
-        y
-
-
-
-
-
-
-
-.. cpp:class:: test2
-
-    info for class *test*
-
-
-
-
-
-
-.. function:: Circle()
-    .TLF.
-    FFS
-
-
-
-.. note:: blag
-
-.. cpp:class:: handle
-
-    Documentation text for class ``handle``
-
-.. cpp:function:: template <typename T> T handle::cast()
-
-    Documentation text for method ``handle::cast()``
-
-
-
-.. code-block:: python
-
-    def some_function():
-
-
-
-.. code-block:: c++
-
-    Circle::Circle(intx, int y, in r)
-    {
-        this->set blabla
-
-
-
-.. image:: /images/circlecpp.png
-
-
-
-
-
 .. py:function:: Circle::Circle(int x, int y, int r)
 
-   Return a list of radom blalbal
+    Header file: ``circle.h``
+
+    Return a list of radom blalbal
     this-> test 
 
    :return: 
    :rtype: list
+   :parameters: 
+
+
     
 
 
+.. py:function:: Image::Image(std::string file_name)
 
-.. cpp:type:: std::vector<int> CustomList
+    Header file: ``image.h`` |br|
+    
+    does this and that 
 
-   A typedef-like declaration of a type.
+
+
+
+.. py:function:: ImageConvert::ImageConvert()
+
+    Header file: ``imageconvert.h`` |br|
+    
+    does this and that 
+
+.. note:: evt noe her 
 
 
 

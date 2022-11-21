@@ -19,10 +19,10 @@ The assignment is as follows:
 
 
 
-Our **method** to deal with the task at hand was ..... |br|
+Our **method** to deal with the task at hand was to create 3 classes. |br|
 
-blablabla
-    
+The classes 
+
     **Flowchart of our 3 main classes:**
 
 .. figure:: images/flowchart.*
