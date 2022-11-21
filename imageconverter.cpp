@@ -1,14 +1,27 @@
 
-#include "circle.h"
+#include <iostream>
+#include "imageconverter.h"
 
-Circle::Circle(int x, int y, int r)
+void ImageConverter::print_circles()
+{
+    for(int i = 0; i < n_circles; i++)
+    {
+        std::cout << "x, y, radius: " 
+                  << test->get_x_pos() << ","
+                  << test->get_y_pos() << ", "
+                  << test->get_radius()
+                  << '\n';
+    }
+}
+
+ImageConverter::Circle::Circle(int x, int y, int r)
 {
     this->set_x_pos(x);
     this->set_y_pos(y);
     this->set_radius(r);
 }
 
-bool Circle::check_circle()
+bool ImageConverter::Circle::check_circle()
 {
     int x = this->get_x_pos();
     int y = this->get_y_pos();

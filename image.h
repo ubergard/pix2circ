@@ -2,12 +2,11 @@
 #define IMAGE_H
 
 #include <string>
+
 class Image
 {
 public:
-  Image();
-  Image(std::string file_name);
-
+  void import_image(std::string file_name);
   void print_dims(); 
   void print_image();
   void find_dims(std::string file_name);
@@ -16,7 +15,7 @@ public:
 
 private:
   std::string image_name;
-  int dims[2] = {0, 0} ;
+  int dims[2] = {0, 0};
   int img_array[1024][1024];
 };
 
