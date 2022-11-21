@@ -14,8 +14,8 @@ Pixels to circles - Documentation by group 23
    introduction
    algorithms
    code_doc
-   testing
    results
+   script
 
    about_us
    readme

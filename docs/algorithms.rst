@@ -18,8 +18,8 @@ The same as 'Bogo place' but with a more distinct approach towards the error rat
 The idea is that by checking the error rate more commonly, it might do something with the efficiency. |br|
 
 
-The structural approach
---------------------------
+*Placeholder name* - The structural approach
+-------------------------------------------------
 This algorithm will divide the image up in sections with squares, check which squares are black and which are
 white. Then it will start with the largest 'clusters' of uni-coloured squares and create the circles. 
 It will keep doing this with squares in descending/decreasing size until it is done.  
