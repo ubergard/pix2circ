@@ -20,7 +20,7 @@ void Image::find_dims(std::string file_name)
   int columns = 0;
   
   std::fstream myFile;
-  myFile.open(file_name, std::ios::in); // read //data2.dat
+  myFile.open(file_name, std::ios::in);
   if (myFile.is_open()) 
   {
     std::string line;
@@ -47,6 +47,11 @@ void Image::find_dims(std::string file_name)
 
 void Image::image_make(std::string file_name)
 {
+  if(!dims[1] || !dims[0])
+  {
+    find_dims(file_name);
+  }
+
   std::cout << '\n' << "Importing file: " << file_name << '\n';
   image_name = file_name;
   std::fstream image_file;
@@ -75,14 +80,25 @@ void Image::image_make(std::string file_name)
 }
 
 void Image::print_dims(){
+  if(!dims[1] || !dims[0])
+  {
+    std::cout << "Could not print dimensions!" << '\n';
+    return;
+  }
+
   std::cout<<"\nThe size of the image is (x,y): "
     << '('<<dims[1]<<','<<dims[0]<<')'
     << "\n\n";
 }
 
-
 void Image::print_image(){
-  // Print image
+  if(!is_image_imported())
+  {
+    std::cout << "Could not print image!" << '\n';
+    return;
+  }
+
+
   int m = dims[0];
   int n = dims[1];
 
@@ -93,5 +109,18 @@ void Image::print_image(){
       std::cout << img_array[m][n];
     }
       std::cout << '\n';
+  }
+}
+
+
+bool Image::is_image_imported()
+{
+  if(!dims[1] || !dims[0] || !img_array[0][0])
+  {
+    std::cout << "Please import the image first!!!" << '\n';
+    return false;
+  }
+  else{
+    return true;
   }
 }
