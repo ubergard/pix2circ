@@ -36,7 +36,6 @@ int main(int argc, char *argv[]) {
 
   batman1.bogo_algorithm(user_input);
   batman1.print_circles();
-  
 
 
   // Check pixel
