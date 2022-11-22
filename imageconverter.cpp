@@ -1,15 +1,29 @@
 
 #include <iostream>
+#include <vector>
+
 #include "imageconverter.h"
+
+
+void ImageConverter::create_circles(int wanted_circles)
+{
+    n_circles = wanted_circles;
+    /*
+    for(int i = 0; i < wanted_circles; i++)
+    {
+        circle_list_2.push_back();
+    }
+    */
+}
 
 void ImageConverter::print_circles()
 {
     for(int i = 0; i < n_circles; i++)
     {
         std::cout << "x, y, radius: " 
-                  << test->get_x_pos() << ","
-                  << test->get_y_pos() << ", "
-                  << test->get_radius()
+                  << circle_list->get_x_pos() << ","
+                  << circle_list->get_y_pos() << ", "
+                  << circle_list->get_radius()
                   << '\n';
     }
 }

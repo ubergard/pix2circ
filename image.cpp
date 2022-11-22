@@ -73,7 +73,7 @@ void Image::image_make(std::string file_name)
 }
 
 void Image::print_dims(){
-  std::cout<<"\nDimentions of the image is (x,y): "
+  std::cout<<"\nThe size of the image is (x,y): "
     << '('<<dims[1]<<','<<dims[0]<<')'
     << "\n\n";
 }

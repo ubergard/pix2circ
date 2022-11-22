@@ -3,12 +3,14 @@
 #define IMAGECONVERTER_H
 
 #include <cassert>
+#include <vector>
+
 #include "image.h"
 
 class ImageConverter: public Image
 {
 public:
-
+    void create_circles(int wanted_circles);
     void print_circles();
 
     class Circle
@@ -39,7 +41,10 @@ public:
 
 private:
     int n_circles = 100;
-    Circle test[100]; 
+    int c_circles = 0;
+    Circle circle_list[100]; 
+
+    std::vector<Circle> circle_list_2;
 };
 
 

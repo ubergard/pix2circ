@@ -10,8 +10,6 @@
 int main(int argc, char *argv[]) {
   // Make image instance 
   std::string file_name = "data.txt";
-  std::string file_name_2 = "test.txt";
-
   std::cout << "\n"
           << "Starting 'Image 2 circle' converter" << "\n"
           << "File: " << file_name << "\n\n";
@@ -28,18 +26,28 @@ int main(int argc, char *argv[]) {
   std::cout << "Circles wanted: " << user_input << '\n';
   #endif
 
-  ImageConverter *batman1 = new ImageConverter;
-  batman1->import_image(file_name);
-  batman1->print_image();
-  batman1->print_dims();
+  ImageConverter batman1; // = new ImageConverter;
+  batman1.import_image(file_name);
+  batman1.print_image();
+  batman1.print_dims();
+  batman1.create_circles(user_input);
+  
+
 
   // Check pixel
   //std::cout << batman1->check_pixel(26, 13) << '\n';
 
+  
+  /* Can run multiple files... or algorithms,
+     but needs allocated memory */
+  
+  std::string file_name_2 = "test.txt";
   ImageConverter *batman2 = new ImageConverter;
   batman2->import_image(file_name_2);
   batman2->print_image();
   batman2->print_dims();
+  
+  delete batman2;
 
 
   return 0;
