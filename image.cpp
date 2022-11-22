@@ -79,6 +79,12 @@ void Image::image_make(std::string file_name)
   }
 }
 
+void Image::set_dims(int rows, int columns)
+{
+  dims[0] = rows;
+  dims[1] = columns;
+}
+
 void Image::print_dims(){
   if(!dims[1] || !dims[0])
   {

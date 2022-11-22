@@ -23,6 +23,7 @@ public:
   */
   void print_dims(); 
   void print_image();
+  void set_dims(int rows, int columns);
   void find_dims(std::string file_name);
   void image_make(std::string file_name);
   int check_pixel(int x, int y){return img_array[y-1][x-1];}
