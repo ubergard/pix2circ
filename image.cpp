@@ -68,7 +68,7 @@ void Image::image_make(std::string file_name)
       }
       else
       {
-        img_array[m][n] = line[n];
+        img_array[m][n] = line[n] - 48;
       }
     }
   }
@@ -90,7 +90,7 @@ void Image::print_image(){
   {
     for (int n = 0; n < dims[1]; n++) 
     {
-      std::cout << img_array[m][n] - 48;
+      std::cout << img_array[m][n];
     }
       std::cout << '\n';
   }

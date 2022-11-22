@@ -15,16 +15,19 @@ int main(int argc, char *argv[]) {
           << "File: " << file_name << "\n\n";
 
 
-  #if defined(terminal_input)
-  int user_input = std::stoi(argv[1]);
+  int user_input = 1;
+#if defined(terminal_input)
+  user_input = std::stoi(argv[1]);
   if(user_input < 1)
   {
     std::cout << "PLEASE PROVIDE A VALID NUMBER!!!" << '\n'
               << "Number provided: " << user_input << "\n";
     abort();
   }
+#else
+  user_input = 10;
+#endif
   std::cout << "Circles wanted: " << user_input << '\n';
-  #endif
 
   ImageConverter batman1; // = new ImageConverter;
   batman1.import_image(file_name);
@@ -37,7 +40,7 @@ int main(int argc, char *argv[]) {
 
 
   // Check pixel
-  //std::cout << batman1->check_pixel(26, 13) << '\n';
+  //std::cout << batman1.check_pixel(26, 13) << '\n';
 
   
   /* Can run multiple files... or algorithms,
