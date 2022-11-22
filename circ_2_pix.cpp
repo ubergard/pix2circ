@@ -2,14 +2,14 @@
 #include <iostream>
 #include <string>
 
-#include "image.h"
+//#include "image.h"
 #include "imageconverter.h"
 
 #define terminal_input
 
 int main(int argc, char *argv[]) {
   // Make image instance 
-  std::string file_name = "data.txt";
+  std::string file_name = "batman.txt";
   std::cout << "\n"
           << "Starting 'Image 2 circle' converter" << "\n"
           << "File: " << file_name << "\n\n";
@@ -30,7 +30,9 @@ int main(int argc, char *argv[]) {
   batman1.import_image(file_name);
   batman1.print_image();
   batman1.print_dims();
-  batman1.create_circles(user_input);
+
+  batman1.bogo_algorithm(user_input);
+  batman1.print_circles();
   
 
 
@@ -41,14 +43,17 @@ int main(int argc, char *argv[]) {
   /* Can run multiple files... or algorithms,
      but needs allocated memory */
   
-  std::string file_name_2 = "test.txt";
+  std::string file_name_2 = "kfc.txt";
   ImageConverter *batman2 = new ImageConverter;
   batman2->import_image(file_name_2);
   batman2->print_image();
   batman2->print_dims();
-  
-  delete batman2;
 
+  batman2->bogo_algorithm(user_input);
+  batman2->print_circles();
+  
+  // Delete object after use
+  delete batman2;
 
   return 0;
 }

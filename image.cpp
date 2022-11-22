@@ -1,9 +1,11 @@
-#include "image.h"
+
 #include <cstdlib>
 #include <fstream>
 #include <iostream>
 #include <string>
 #include <cassert>
+
+#include "image.h"
 
 
 void Image::import_image(std::string file_name)
