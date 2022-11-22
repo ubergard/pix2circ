@@ -7,12 +7,6 @@
 
 #include "imageconverter.h"
 
-/* Bogo algorithm
-* Bogo algorithm tries to make the worst case scenario for placing circles, 
-* by randomly placing them, with a random size, only limited by the image diagonal.
-*
-* Input: Number of circles
-*/
 void ImageConverter::bogo_algorithm(int wanted_circles)
 {
     n_circles = wanted_circles;
