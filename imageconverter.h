@@ -10,7 +10,13 @@
 class ImageConverter: public Image
 {
 public:
-    // Features
+    // ------ Features ------
+    /** 
+    * Print circles (Might get changed to return or save values to file!)
+    *
+    * @brief Will iterate through the circle_list[vector] and print the values of the circles in
+    *        the terminal.
+    */
     void print_circles();
 
     // ------ Algorithms ------
@@ -24,12 +30,12 @@ public:
     */
     void bogo_algorithm(int wanted_circles);
 
+
     class Circle
     {
     public:
         Circle() {}
         Circle(int x, int y, int r, int c);
-
 
 
         // ------ Circles, fetch values ------
@@ -70,7 +76,6 @@ public:
         int get_color() const { return this->color; }
 
 
-
         // ------ Circles, set values ------
         /** 
         * Set x position
@@ -107,7 +112,6 @@ public:
         * @param c Int, contains the color
         */
         void set_color(int c) { this->color = c; }
-
 
         /**
         * Check circle (NOT COMPLETE)

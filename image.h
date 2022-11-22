@@ -6,7 +6,7 @@
 class Image
 {
 public:
-  // Features
+  // ------ Features ------
   void import_image(std::string file_name);
   void print_dims(); 
   void print_image();
