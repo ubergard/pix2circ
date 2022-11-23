@@ -1,18 +1,6 @@
 Code documentation
 =====================
 
-Circle
---------
-
- Header file: ``circle.h``
-
- Source code: :ref:`Related to Circle`
- 
-.. py:function:: Circle::Circle(int x, int y, int r)
-
-    :brief:  |br| |br|
-
-    :parameters: 
 
 Image
 -------
@@ -124,16 +112,103 @@ Source code: :ref:`Related to Image`
 
     Bogo algorithm
 
-        :brief: Bogo algorithm tries to make the worst case scenari
+        :brief: Bogo algorithm tries to make the worst case scenario for placing circles, 
+                by randomply placing them, with a random size, only limited by the image diagonal. |br| |br|
+
+        :parameter wnated_circles: Value which specifies the number of circles to be placed by algorithm.
 
 
+Circle
+--------
+
+ Header file: ``imageconverter.h``
+
+ Source code: :ref:`Related to Circle`
+ 
+.. py:function:: Circle::Circle(int x, int y, int r, int c)
+.. py:function:: int get_x_pos() const { return this->get_x_pos}
+    
+    Get x position
+
+    :brief: An implenetation for returning the x-value of a circle.  |br| |br|
+
+    :return: x position [int]
 
 
+.. py:function:: int get_y_position() const { return this->get_y_pos}
+
+    Get y position
+
+    :brief: An implementation for returning the y-value of a circle. |br| |br|
+
+    :return: y position[int]
+
+
+.. py:function:: int get_radius() const{ return this ->radius}
+
+    Get radius:
+
+    :brief: An implementation for returning the radius of a circle. |br| |br|
+
+    :return: radius [int]
+
+
+.. py:function:: get_color() const {return this->color} 
+
+    Get color
+
+    :brief: An implementation for returning the color-value of a circle. |br| |br|
+
+    :return: color[int]
+
+
+.. py:function:: void set_x_pos(int x) { this->x_pos = x}
+
+    Set x position
+
+    :brief: An implementation for setting the x-value of a circle. |br| |br|
+
+    :parameter x: Int, contains the x-position
+
+
+.. py:function:: void set_y_pos{int y) { this->y_pos = y}
+
+    Set y position
+
+    :brief: An implementation for setting the y-value of a circle. |br| |br|
+
+    :parameter y: Int, contains the y-position
+
+
+.. py:function:: void set_radius(int r) {assert(r>=0) this->radius = r}
+
+    Set radius
+
+    :brief: An implementation for setting the radius of a circle. |br| |br|
+
+    :parameter r: Int, contains the radius
+
+
+.. py:function:: void set_color(int c) {this->color = c}
+
+    Set color
+
+    :brief: An implementation for setting the color of a circle. |br| |br|
+
+    :parameter c: Int, contains the color. 
+
+.. py:function:: bool check_circle() 
+
+    Check circle (not finished)
+
+    :brief: Function for checking the area, which the  circle is placed. 
+            Will store relevant data. |br| |br|
+
+    :return bool: Tells if the circle is placed on a black pixel.
+    
 
 
 .. note:: evt noe her 
-
-
 
 
 
