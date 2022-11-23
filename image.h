@@ -91,7 +91,7 @@ public:
 
   double accuracy();
 
-  void evaluation_of_pixels(int *tp, int *tn, int *fp, int *fn);
+  void evaluation_of_pixels(int &tp, int &tn, int &fp, int &fn);
   
 
 protected:
