@@ -53,6 +53,7 @@ int main(int argc, char *argv[]) {
 
   batman2->bogo_algorithm(user_input);
   batman2->print_circles();
+  batman2->accuracy();
   
   // Delete object after use
   delete batman2;

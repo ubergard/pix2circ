@@ -130,3 +130,44 @@ bool Image::is_image_imported()
     return true;
   }
 }
+
+double Image::accuracy(){
+  int tp;
+  int tn;
+  int fp;
+  int fn;
+  evaluation_of_pixels(*tp, *tn, *fp, *fn);
+
+}
+
+void Image::evaluation_of_pixels(int *tp, int *tn, int *fp, int *fn)
+{
+// We asume that black is is forgraound and call it posetive
+// The opesit goes for white, backgorund is white and therfor negative 
+int m = dims[0];
+int n = dims[1];
+*tp = 0;
+*tn = 0;
+*fp = 0;
+*fn = 0;
+
+for (int y = 0; y < m; y++) {
+    for (int x = 0; x < n; x++)
+      if (img_array[y][x] == 1) {
+        if(img_array[y][x] == img_array[y][x]) // change img_array to img_pred
+        {
+          tp++;
+        } else {
+          fn++;
+        }
+      } else {
+       if(img_array[y][x] == img_array[y][x]){
+          tn++;
+        } else {
+          fp ++;
+        }
+      }
+  }
+}
+
+

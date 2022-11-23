@@ -89,6 +89,11 @@ public:
   */ 
   bool is_image_imported();
 
+  double accuracy();
+
+  void evaluation_of_pixels(int *tp, int *tn, int *fp, int *fn);
+  
+
 protected:
   std::string image_name;
   int dims[2] = {0, 0};
