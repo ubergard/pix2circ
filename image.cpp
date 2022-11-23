@@ -4,6 +4,7 @@
 #include <iostream>
 #include <string>
 #include <cassert>
+#include <cmath>
 
 #include "image.h"
 
@@ -137,8 +138,41 @@ double Image::accuracy(){
   int fp = 0;
   int fn = 0;
   evaluation_of_pixels(tp, tn, fp, fn);
-
+  return (tp + tn)/(tp + fp + fn + tn);
 }
+  
+double Image::precision(){
+  int tp = 0;
+  int tn = 0;
+  int fp = 0;
+  int fn = 0;
+  evaluation_of_pixels(tp, tn, fp, fn);
+  return tp/(tp+fp);
+};
+  double Image::recall(){
+  int tp = 0;
+  int tn = 0;
+  int fp = 0;
+  int fn = 0;
+  evaluation_of_pixels(tp, tn, fp, fn);
+  return tp/(tp+fp);
+};
+  double Image::f1_score(){
+  int tp = 0;
+  int tn = 0;
+  int fp = 0;
+  int fn = 0;
+  evaluation_of_pixels(tp, tn, fp, fn);
+  return (2 * tp)/(2*tp + fp +fn);
+};
+  double Image::Matthews_correlation_coefficient(){
+  int tp = 0;
+  int tn = 0;
+  int fp = 0;
+  int fn = 0;
+  evaluation_of_pixels(tp, tn, fp, fn);
+  return (tp*tn - fp*fn)/(sqrt((tp + fp) * (tp + fn)* (tn + fp)*(tn + fn) ));
+};
 
 void Image::evaluation_of_pixels(int &tp, int &tn, int &fp, int &fn)
 {
