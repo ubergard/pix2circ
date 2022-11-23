@@ -1,80 +1,132 @@
-#include "image.h"
+
 #include <cstdlib>
 #include <fstream>
 #include <iostream>
 #include <string>
 #include <cassert>
 
-Image::Image(std::string file_name){
+#include "image.h"
+
+
+void Image::import_image(std::string file_name)
+{
+  find_dims(file_name);
   image_make(file_name);
 }
 
-void Image::find_dims(std::string file_name) {
+void Image::find_dims(std::string file_name) 
+{
   int rows = 0;
   int columns = 0;
-  //std::string file = file_name;
   
   std::fstream myFile;
-  myFile.open(file_name, std::ios::in); // read //data2.dat
-  if (myFile.is_open()) {
+  myFile.open(file_name, std::ios::in);
+  if (myFile.is_open()) 
+  {
     std::string line;
     std::getline(myFile, line);
     columns = line.length();
     rows++;  
-    while (std::getline(myFile, line)) {
+    while (std::getline(myFile, line))
+    {
       rows++;
-      if (line.length() != columns) {
+      if (line.length() != columns) 
+      {
         std::cout << "\n\n" 
           << "AT LEAST ONE ROW HAVE LESS ENTRIES THAN OTHER LINES" << '\n'
           << "Row: " << rows << " is missing entries\n"
-          << "The difference is: " << columns - line.length()
-          << "\n\n\n";
+          << "The difference is: " << columns - line.length()<< "\n\n\n";
         abort();
       }
     }
     myFile.close();
 }
-  this->dims[0] = rows;
-  this->dims[1] = columns;
+  dims[0] = rows;
+  dims[1] = columns;
 }
 
-void Image::image_make(std::string file_name){
-  std::cout << '\n' << file_name << '\n';
-  find_dims(file_name);
-  int pixels[this->dims[0]][this->dims[1]];
+void Image::image_make(std::string file_name)
+{
+  if(!dims[1] || !dims[0])
+  {
+    find_dims(file_name);
+  }
+
+  std::cout << '\n' << "Importing file: " << file_name << '\n';
+  image_name = file_name;
   std::fstream image_file;
   image_file.open(file_name, std::ios::in);
   std::string line;
   if (!image_file.is_open()) {abort();}
 
-  for (int m = 0; m < this->dims[0]; m++) {
+  for (int m = 0; m < dims[0]; m++) 
+  {
     std::getline(image_file, line);
-    for (int n = 0; n < this->dims[1]; n++) {
-      int num = 0;
-      pixels[m][n] = line[n];
+    for (int n = 0; n < dims[1]; n++) 
+    {
+      if(line[n] < 48)
+      {
+        std::cout << "\n"
+          << "Illegal character: '" << line[n] << "'" << "\n"
+          << "Position " << n << "," << m << "\n\n";
+        abort();
+      }
+      else
+      {
+        img_array[m][n] = line[n] - 48;
+      }
     }
   }
-  // Print image
-for (int m = 0; m < this->dims[0]; m++) {
-  for (int n = 0; n < this->dims[1]; n++) {
-      std::cout << pixels[m][n] - 48;
-    }
-    std::cout << '\n';
-  }
-  
+}
+
+void Image::set_dims(int rows, int columns)
+{
+  dims[0] = rows;
+  dims[1] = columns;
 }
 
 void Image::print_dims(){
-  std::cout<<"\nDimentions of the image is: "
-    << '('<<dims[0]<<','<<dims[1]<<')'
-    << '\n';
+  if(!dims[1] || !dims[0])
+  {
+    std::cout << "Could not print dimensions!" << '\n';
+    return;
+  }
+
+  std::cout<<"\nThe size of the image is (x,y): "
+    << '('<<dims[1]<<','<<dims[0]<<')'
+    << "\n\n";
 }
 
-//void Image::print_image() {
- // Print image
-//for (int i = 0; i < len; i++) {
-//  for (int j = 0; j < wid; j++) {
-//    std::cout << image[j][i];
-//  }
-//  std::cout << '\n';
-//}
+void Image::print_image(){
+  if(!is_image_imported())
+  {
+    std::cout << "Could not print image!" << '\n';
+    return;
+  }
+
+
+  int m = dims[0];
+  int n = dims[1];
+
+  for (int m = 0; m < dims[0]; m++) 
+  {
+    for (int n = 0; n < dims[1]; n++) 
+    {
+      std::cout << img_array[m][n];
+    }
+      std::cout << '\n';
+  }
+}
+
+
+bool Image::is_image_imported()
+{
+  if(!dims[1] || !dims[0] || !img_array[0][0])
+  {
+    std::cout << "Please import the image first!!!" << '\n';
+    return false;
+  }
+  else{
+    return true;
+  }
+}
