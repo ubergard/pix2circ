@@ -1,5 +1,5 @@
 
-#include <cmath>
+//#include <cmath>
 #include <iostream>
 #include <vector>
 #include <math.h>
@@ -8,6 +8,19 @@
 
 #include "image.h"
 #include "imageconverter.h"
+
+ImageConverter::~ImageConverter()
+{
+  // Deletes all the objects
+  circle_list.clear();
+  approx_image.clear();
+
+  // Frees up the memory, by swapping with an empty vector
+  std::vector<ImageConverter::Circle> free_memory;
+  std::vector<std::vector<int>>  free_memory_2;
+  free_memory.swap(circle_list);
+  free_memory_2.swap(approx_image);
+}
 
 void ImageConverter::bogo_algorithm(int wanted_circles)
 {
@@ -22,7 +35,7 @@ void ImageConverter::bogo_algorithm(int wanted_circles)
     srand(time(NULL)+run_counter);
 
     // Black background, only create background once
-    if(!circle_list.size())
+    if(circle_list.empty())
     {
         circle_list.push_back(ImageConverter::Circle(0,0,radius_limit, 1));
     }
@@ -106,7 +119,7 @@ void ImageConverter::approxinate_image(){
   {
     for (int n = 0; n < dims[1]; n++) 
     {
-      std::cout << img_array[m][n];
+      std::cout << img_vector[m][n];
     }
     std::cout << '\n';
   }
@@ -129,15 +142,16 @@ double ImageConverter::precision(){
   int fn = 0;
   evaluation_of_pixels(tp, tn, fp, fn);
   return tp/(tp+fp);
-};
-  double ImageConverter::recall(){
+}
+
+double ImageConverter::recall(){
   int tp = 0;
   int tn = 0;
   int fp = 0;
   int fn = 0;
   evaluation_of_pixels(tp, tn, fp, fn);
   return tp/(tp+fp);
-};
+}
   double ImageConverter::f1_score(){
   int tp = 0;
   int tn = 0;
@@ -145,7 +159,7 @@ double ImageConverter::precision(){
   int fn = 0;
   evaluation_of_pixels(tp, tn, fp, fn);
   return (2 * tp)/(2*tp + fp +fn);
-};
+}
   double ImageConverter::Matthews_correlation_coefficient(){
   int tp = 0;
   int tn = 0;
@@ -153,7 +167,7 @@ double ImageConverter::precision(){
   int fn = 0;
   evaluation_of_pixels(tp, tn, fp, fn);
   return (tp*tn - fp*fn)/(sqrt((tp + fp) * (tp + fn)* (tn + fp)*(tn + fn) ));
-};
+}
 
 void ImageConverter::evaluation_of_pixels(int &tp, int &tn, int &fp, int &fn)
 {
@@ -168,15 +182,15 @@ fn = 0;
 
 for (int y = 0; y < m; y++) {
     for (int x = 0; x < n; x++)
-      if (img_array[y][x] == 1) {
-        if(img_array[y][x] == img_array[y][x]) // change img_array to img_pred
+      if (img_vector[y][x] == 1) {
+        if(img_vector[y][x] == img_vector[y][x]) // change img_array to img_pred
         {
           tp++;
         } else {
           fn++;
         }
       } else {
-       if(img_array[y][x] == img_array[y][x]){
+       if(img_vector[y][x] == img_vector[y][x]){
           tn++;
         } else {
           fp ++;

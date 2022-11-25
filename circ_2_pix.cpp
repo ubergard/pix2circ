@@ -29,6 +29,7 @@ int main(int argc, char *argv[]) {
 #endif
   std::cout << "Circles wanted: " << user_input << '\n';
 
+
   ImageConverter batman; // = new ImageConverter;
   batman.import_image(file_name);
   batman.print_image();
@@ -39,7 +40,7 @@ int main(int argc, char *argv[]) {
 
 
   // Check pixel
-  //std::cout << batman1.check_pixel(26, 13) << '\n';
+  //std::cout << batman.check_pixel(26, 13) << '\n';
 
   
   /* Can run multiple files... or algorithms,

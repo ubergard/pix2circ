@@ -10,6 +10,14 @@
 class ImageConverter: public Image
 {
 public:
+
+    /**
+    * ImageConverter destructor
+    *
+    * @brief Clears the vector and 2D vector and frees up the memory.
+    */
+    ~ImageConverter();
+
     // ------ Features ------
     /** 
     * Print circles (Might get changed to return or save values to file!)
@@ -18,6 +26,7 @@ public:
     *        the terminal.
     */
     void print_circles();
+
 
     // ------ Algorithms ------
     /** 
@@ -150,8 +159,7 @@ private:
     int c_circles = 0;
     int run_counter = 0;
 
-    //std::vector<std::vector<int>> approx_image;
-    int approx_image[512][512];
+    std::vector<std::vector<int>> approx_image;
     std::vector<Circle> circle_list;
 };
 

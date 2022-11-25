@@ -4,10 +4,21 @@
 #include <iostream>
 #include <string>
 #include <cassert>
-#include <cmath>
+#include <math.h>
+#include <vector>
 
 #include "image.h"
 
+
+Image::~Image()
+{
+  // Deletes all the objects
+  img_vector.clear();
+
+  // Frees up the memory, by swapping with an empty vector
+  std::vector<std::vector<int>>  free_memory;
+  free_memory.swap(img_vector);
+}
 
 void Image::import_image(std::string file_name)
 {
@@ -62,6 +73,7 @@ void Image::image_make(std::string file_name)
 
   for (int m = 0; m < dims[0]; m++) 
   {
+    img_vector.push_back(std::vector<int>());
     std::getline(image_file, line);
     for (int n = 0; n < dims[1]; n++) 
     {
@@ -74,7 +86,7 @@ void Image::image_make(std::string file_name)
       }
       else
       {
-        img_array[m][n] = line[n] - 48;
+        img_vector[m].push_back(line[n] - 48);
       }
     }
   }
@@ -109,7 +121,7 @@ void Image::print_image(){
   {
     for (int n = 0; n < dims[1]; n++) 
     {
-      std::cout << img_array[m][n];
+      std::cout << img_vector[m][n];
     }
       std::cout << '\n';
   }
@@ -117,7 +129,7 @@ void Image::print_image(){
 
 bool Image::is_image_imported()
 {
-  if(!dims[1] || !dims[0] || !img_array[0][0])
+  if(!dims[1] || !dims[0] || !img_vector[0][0])
   {
     std::cout << "Please import the image first!!!" << '\n';
     return false;
