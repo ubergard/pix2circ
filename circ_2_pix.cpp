@@ -1,14 +1,15 @@
 
 #include <iostream>
-#include <string>
 #include <memory>
 
+// Can use image class with other features from imageconverter
 //#include "image.h"
 #include "imageconverter.h"
 
 #define terminal_input
 
-int main(int argc, char *argv[]) {
+int main(int argc, char *argv[]) 
+{
   // Start software
   std::cout << "\n"
           << "Starting 'Image 2 circle' converter" << "\n\n";

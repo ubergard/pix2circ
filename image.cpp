@@ -1,10 +1,6 @@
 
 #include <fstream>
 #include <iostream>
-#include <string>
-#include <cassert>
-#include <math.h>
-#include <vector>
 
 #include "image.h"
 
@@ -41,7 +37,7 @@ void Image::find_dims(std::string file_name)
       }
     }
     myFile.close();
-}
+  }
   dims[0] = rows;
   dims[1] = columns;
 }
@@ -87,7 +83,8 @@ void Image::set_dims(int rows, int columns)
   dims[1] = columns;
 }
 
-void Image::print_dims(){
+void Image::print_dims()
+{
   if(!dims[1] || !dims[0])
   {
     std::cout << "Could not print dimensions!" << '\n';
@@ -112,7 +109,7 @@ void Image::print_image(){
     {
       std::cout << img_vector[m][n];
     }
-      std::cout << '\n';
+    std::cout << '\n';
   }
 }
 
@@ -123,7 +120,8 @@ bool Image::is_image_imported()
     std::cout << "Please import the image first!!!" << '\n';
     return false;
   }
-  else{
+  else
+  {
     return true;
   }
 }
