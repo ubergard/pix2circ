@@ -1,10 +1,12 @@
 
+#include <cmath>
 #include <iostream>
 #include <vector>
 #include <math.h>
 #include <stdlib.h>
 #include <time.h> 
 
+#include "image.h"
 #include "imageconverter.h"
 
 void ImageConverter::bogo_algorithm(int wanted_circles)
@@ -95,3 +97,95 @@ bool ImageConverter::Circle::check_circle()
 
     return false;
 }
+
+void ImageConverter::approxinate_image(){
+std::cout<<"Hello";
+  int m = 10; // Image::dims[0];
+  int n = 10; // Image::dims[1];
+  std::cout<<"\n"<< m << n << "\n";
+
+  for (int m = 0; m < 10; m++) 
+  {
+    for (int n = 0; n < 10; n++) 
+    {
+      std::cout << img_array[m][n];
+    }
+    std::cout << '\n';
+  }
+}
+
+
+double ImageConverter::accuracy(){
+  int tp = 0;
+  int tn = 0;
+  int fp = 0;
+  int fn = 0;
+  evaluation_of_pixels(tp, tn, fp, fn);
+  return (tp + tn)/(tp + fp + fn + tn);
+}
+  
+double ImageConverter::precision(){
+  int tp = 0;
+  int tn = 0;
+  int fp = 0;
+  int fn = 0;
+  evaluation_of_pixels(tp, tn, fp, fn);
+  return tp/(tp+fp);
+};
+  double ImageConverter::recall(){
+  int tp = 0;
+  int tn = 0;
+  int fp = 0;
+  int fn = 0;
+  evaluation_of_pixels(tp, tn, fp, fn);
+  return tp/(tp+fp);
+};
+  double ImageConverter::f1_score(){
+  int tp = 0;
+  int tn = 0;
+  int fp = 0;
+  int fn = 0;
+  evaluation_of_pixels(tp, tn, fp, fn);
+  return (2 * tp)/(2*tp + fp +fn);
+};
+  double ImageConverter::Matthews_correlation_coefficient(){
+  int tp = 0;
+  int tn = 0;
+  int fp = 0;
+  int fn = 0;
+  evaluation_of_pixels(tp, tn, fp, fn);
+  return (tp*tn - fp*fn)/(sqrt((tp + fp) * (tp + fn)* (tn + fp)*(tn + fn) ));
+};
+
+void ImageConverter::evaluation_of_pixels(int &tp, int &tn, int &fp, int &fn)
+{
+// we asume that black is is forgraound and call it posetive
+// the opesit goes for white, backgorund is white and therfor negative 
+int m = dims[0];
+int n = dims[1];
+tp = 0;
+tn = 0;
+fp = 0;
+fn = 0;
+
+for (int y = 0; y < m; y++) {
+    for (int x = 0; x < n; x++)
+      if (img_array[y][x] == 1) {
+        if(img_array[y][x] == img_array[y][x]) // change img_array to img_pred
+        {
+          tp++;
+        } else {
+          fn++;
+        }
+      } else {
+       if(img_array[y][x] == img_array[y][x]){
+          tn++;
+        } else {
+          fp ++;
+        }
+      }
+  }
+}
+
+
+

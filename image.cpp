@@ -65,7 +65,7 @@ void Image::image_make(std::string file_name)
     std::getline(image_file, line);
     for (int n = 0; n < dims[1]; n++) 
     {
-      if(line[n] < 48)
+      if(line[n] < 48) // 
       {
         std::cout << "\n"
           << "Illegal character: '" << line[n] << "'" << "\n"
@@ -105,11 +105,10 @@ void Image::print_image(){
     return;
   }
 
-
   int m = dims[0];
   int n = dims[1];
 
-  for (int m = 0; m < dims[0]; m++) 
+ for (int m = 0; m < dims[0]; m++) 
   {
     for (int n = 0; n < dims[1]; n++) 
     {
@@ -118,7 +117,6 @@ void Image::print_image(){
       std::cout << '\n';
   }
 }
-
 
 bool Image::is_image_imported()
 {
@@ -131,77 +129,3 @@ bool Image::is_image_imported()
     return true;
   }
 }
-
-double Image::accuracy(){
-  int tp = 0;
-  int tn = 0;
-  int fp = 0;
-  int fn = 0;
-  evaluation_of_pixels(tp, tn, fp, fn);
-  return (tp + tn)/(tp + fp + fn + tn);
-}
-  
-double Image::precision(){
-  int tp = 0;
-  int tn = 0;
-  int fp = 0;
-  int fn = 0;
-  evaluation_of_pixels(tp, tn, fp, fn);
-  return tp/(tp+fp);
-};
-  double Image::recall(){
-  int tp = 0;
-  int tn = 0;
-  int fp = 0;
-  int fn = 0;
-  evaluation_of_pixels(tp, tn, fp, fn);
-  return tp/(tp+fp);
-};
-  double Image::f1_score(){
-  int tp = 0;
-  int tn = 0;
-  int fp = 0;
-  int fn = 0;
-  evaluation_of_pixels(tp, tn, fp, fn);
-  return (2 * tp)/(2*tp + fp +fn);
-};
-  double Image::Matthews_correlation_coefficient(){
-  int tp = 0;
-  int tn = 0;
-  int fp = 0;
-  int fn = 0;
-  evaluation_of_pixels(tp, tn, fp, fn);
-  return (tp*tn - fp*fn)/(sqrt((tp + fp) * (tp + fn)* (tn + fp)*(tn + fn) ));
-};
-
-void Image::evaluation_of_pixels(int &tp, int &tn, int &fp, int &fn)
-{
-// We asume that black is is forgraound and call it posetive
-// The opesit goes for white, backgorund is white and therfor negative 
-int m = dims[0];
-int n = dims[1];
-tp = 0;
-tn = 0;
-fp = 0;
-fn = 0;
-
-for (int y = 0; y < m; y++) {
-    for (int x = 0; x < n; x++)
-      if (img_array[y][x] == 1) {
-        if(img_array[y][x] == img_array[y][x]) // change img_array to img_pred
-        {
-          tp++;
-        } else {
-          fn++;
-        }
-      } else {
-       if(img_array[y][x] == img_array[y][x]){
-          tn++;
-        } else {
-          fp ++;
-        }
-      }
-  }
-}
-
-

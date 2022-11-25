@@ -53,8 +53,8 @@ int main(int argc, char *argv[]) {
 
   batman2->bogo_algorithm(user_input);
   batman2->print_circles();
-  std::cout<< '\n' << batman2->Matthews_correlation_coefficient() << '\n';
-  
+  std::cout<< '\n' << batman2->accuracy() << '\n';
+  batman2->approxinate_image(); 
   
   // Delete object after use
   delete batman2;

@@ -28,8 +28,20 @@ public:
     *
     * @param wanted_circles Value which speciefies the number of circles to be placed by algorithm
     */
+
+    void approxinate_image();
+
+
     void bogo_algorithm(int wanted_circles);
 
+    double accuracy();
+    double precision();
+    double recall();
+    double f1_score();
+    double Matthews_correlation_coefficient();
+
+    void evaluation_of_pixels(int &tp, int &tn, int &fp, int &fn);
+  
 
     class Circle
     {
@@ -138,6 +150,7 @@ private:
     int n_circles = 100;
     int c_circles = 0;
     int run_counter = 0;
+    int approx_img[10][10];
 
     std::vector<Circle> circle_list;
 };

@@ -86,17 +86,10 @@ public:
   *        Checks dimensions and if atleast one pixel is given.
   *
   * @return bool, values are set.
-  */ 
+  */
+
   bool is_image_imported();
 
-  double accuracy();
-  double precision();
-  double recall();
-  double f1_score();
-  double Matthews_correlation_coefficient();
-
-  void evaluation_of_pixels(int &tp, int &tn, int &fp, int &fn);
-  
 
 protected:
   std::string image_name;
