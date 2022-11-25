@@ -6,7 +6,7 @@ The assignment is as follows :
 
 ::  
     
-    Pixels to circles* 
+    Pixels to circles
 
     As an input, a two-dimensional image or landscape is given by an n x n square of black-and-white 
     pixels.
@@ -19,11 +19,10 @@ The assignment is as follows :
 
 
 
-Our **method** to deal with the task at hand was to create 3 classes. |br|
+Our **method** to deal with the task at hand was to create 3 main classes, namely Circle, Image and ImageConverter. 
 
-The classes 
 
-    **Flowchart of our 3 main classes:**
+    **Flowchart and structure of our 3 main classes:**
 
 .. figure:: images/flowchart.png
     :width: 550 px

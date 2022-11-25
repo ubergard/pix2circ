@@ -1,8 +1,11 @@
 ReadME
 =======
 
-Pix2circ Group23 |br|
-term assignment by Jon Augensen, Ole Benjamin Gauslaa and Lars Øvergård! |br|
+::  
+   
+   Pix2circ Group23 
+   term assignment by Jon Augensen, Ole Benjamin Gauslaa and Lars Øvergård!
+
 
 **INSERT HVORDAN BRUKE OPPLEGGET HER** |br| 
 

@@ -130,3 +130,5 @@ bool Image::is_image_imported()
     return true;
   }
 }
+
+
