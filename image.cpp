@@ -1,5 +1,4 @@
 
-#include <cstdlib>
 #include <fstream>
 #include <iostream>
 #include <string>
@@ -9,16 +8,6 @@
 
 #include "image.h"
 
-
-Image::~Image()
-{
-  // Deletes all the objects
-  img_vector.clear();
-
-  // Frees up the memory, by swapping with an empty vector
-  std::vector<std::vector<int>>  free_memory;
-  free_memory.swap(img_vector);
-}
 
 void Image::import_image(std::string file_name)
 {

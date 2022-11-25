@@ -7,14 +7,6 @@
 class Image
 {
 public:
-
-  /**
-  * Image destructor
-  *
-  * @brief Clears the 2D vector and frees up the memory.
-  */
-  ~Image();
-
   // ------ Features ------
   /**
   * Import image

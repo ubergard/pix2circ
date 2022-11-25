@@ -10,14 +10,6 @@
 class ImageConverter: public Image
 {
 public:
-
-    /**
-    * ImageConverter destructor
-    *
-    * @brief Clears the vector and 2D vector and frees up the memory.
-    */
-    ~ImageConverter();
-
     // ------ Features ------
     /** 
     * Print circles (Might get changed to return or save values to file!)

@@ -1,6 +1,7 @@
 
 #include <iostream>
 #include <string>
+#include <memory>
 
 //#include "image.h"
 #include "imageconverter.h"
@@ -8,11 +9,9 @@
 #define terminal_input
 
 int main(int argc, char *argv[]) {
-  // Make image instance 
-  std::string file_name = "batman.txt";
+  // Start software
   std::cout << "\n"
-          << "Starting 'Image 2 circle' converter" << "\n"
-          << "File: " << file_name << "\n\n";
+          << "Starting 'Image 2 circle' converter" << "\n\n";
 
 
   int user_input = 1;
@@ -29,25 +28,22 @@ int main(int argc, char *argv[]) {
 #endif
   std::cout << "Circles wanted: " << user_input << '\n';
 
+  std::string file_name = "batman.txt";
+  std::shared_ptr<ImageConverter> batman(new ImageConverter);
+  batman->import_image(file_name);
+  batman->print_image();
+  batman->print_dims();
 
-  ImageConverter batman; // = new ImageConverter;
-  batman.import_image(file_name);
-  batman.print_image();
-  batman.print_dims();
-
-  batman.bogo_algorithm(user_input);
-  batman.print_circles();
+  batman->bogo_algorithm(user_input);
+  batman->print_circles();
 
 
   // Check pixel
-  //std::cout << batman.check_pixel(26, 13) << '\n';
+  std::cout << batman->check_pixel(26, 13) << '\n';
 
   
-  /* Can run multiple files... or algorithms,
-     but needs allocated memory */
-  
   std::string file_name_2 = "kfc.txt";
-  ImageConverter *kfc = new ImageConverter;
+  std::shared_ptr<ImageConverter> kfc(new ImageConverter);
   kfc->import_image(file_name_2);
   kfc->print_image();
   kfc->print_dims();
@@ -56,9 +52,6 @@ int main(int argc, char *argv[]) {
   kfc->print_circles();
   std::cout<< '\n' << kfc->accuracy() << '\n';
   kfc->approxinate_image(); 
-  
-  // Delete object after use
-  delete kfc;
 
   return 0;
 }

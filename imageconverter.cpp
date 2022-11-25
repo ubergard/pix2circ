@@ -1,26 +1,12 @@
 
-//#include <cmath>
 #include <iostream>
 #include <vector>
 #include <math.h>
-#include <stdlib.h>
 #include <time.h> 
 
 #include "image.h"
 #include "imageconverter.h"
 
-ImageConverter::~ImageConverter()
-{
-  // Deletes all the objects
-  circle_list.clear();
-  approx_image.clear();
-
-  // Frees up the memory, by swapping with an empty vector
-  std::vector<ImageConverter::Circle> free_memory;
-  std::vector<std::vector<int>>  free_memory_2;
-  free_memory.swap(circle_list);
-  free_memory_2.swap(approx_image);
-}
 
 void ImageConverter::bogo_algorithm(int wanted_circles)
 {
