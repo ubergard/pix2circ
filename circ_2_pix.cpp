@@ -29,13 +29,13 @@ int main(int argc, char *argv[]) {
 #endif
   std::cout << "Circles wanted: " << user_input << '\n';
 
-  ImageConverter batman1; // = new ImageConverter;
-  batman1.import_image(file_name);
-  batman1.print_image();
-  batman1.print_dims();
+  ImageConverter batman; // = new ImageConverter;
+  batman.import_image(file_name);
+  batman.print_image();
+  batman.print_dims();
 
-  batman1.bogo_algorithm(user_input);
-  batman1.print_circles();
+  batman.bogo_algorithm(user_input);
+  batman.print_circles();
 
 
   // Check pixel
@@ -46,18 +46,18 @@ int main(int argc, char *argv[]) {
      but needs allocated memory */
   
   std::string file_name_2 = "kfc.txt";
-  ImageConverter *batman2 = new ImageConverter;
-  batman2->import_image(file_name_2);
-  batman2->print_image();
-  batman2->print_dims();
+  ImageConverter *kfc = new ImageConverter;
+  kfc->import_image(file_name_2);
+  kfc->print_image();
+  kfc->print_dims();
 
-  batman2->bogo_algorithm(user_input);
-  batman2->print_circles();
-  std::cout<< '\n' << batman2->accuracy() << '\n';
-  batman2->approxinate_image(); 
+  kfc->bogo_algorithm(user_input);
+  kfc->print_circles();
+  std::cout<< '\n' << kfc->accuracy() << '\n';
+  kfc->approxinate_image(); 
   
   // Delete object after use
-  delete batman2;
+  delete kfc;
 
   return 0;
 }

@@ -94,7 +94,7 @@ public:
 protected:
   std::string image_name;
   int dims[2] = {0, 0};
-  int img_array[1024][1024];
+  int img_array[512][512];
 };
 
 #endif

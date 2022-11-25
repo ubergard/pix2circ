@@ -99,14 +99,12 @@ bool ImageConverter::Circle::check_circle()
 }
 
 void ImageConverter::approxinate_image(){
-std::cout<<"Hello";
-  int m = 10; // Image::dims[0];
-  int n = 10; // Image::dims[1];
-  std::cout<<"\n"<< m << n << "\n";
+  std::cout<<"Hello";
+  std::cout<<"\n"<< dims[0]<< ", " << dims[1] << "\n";
 
-  for (int m = 0; m < 10; m++) 
+  for (int m = 0; m < dims[0]; m++) 
   {
-    for (int n = 0; n < 10; n++) 
+    for (int n = 0; n < dims[1]; n++) 
     {
       std::cout << img_array[m][n];
     }

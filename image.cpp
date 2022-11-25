@@ -105,9 +105,6 @@ void Image::print_image(){
     return;
   }
 
-  int m = dims[0];
-  int n = dims[1];
-
  for (int m = 0; m < dims[0]; m++) 
   {
     for (int n = 0; n < dims[1]; n++) 
