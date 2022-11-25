@@ -1,7 +1,6 @@
 # Pix2Circ
-It will create an approximation of a picture/file by a set of superimposed circles. <br />
+It will create an approximation of a picture/file by a set of superimposed or imposed circles. <br />
+There are multiple algorithms implemented and some benchmark tools.<br />
 
-## Protip
-
-You can use a normal binary image file, but you will need to convert it.<br />
-We have made a simple python script to convert it to the correct format.
+Supports binary images. <br />
+See example files...
