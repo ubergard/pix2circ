@@ -24,6 +24,7 @@ This algorithm will divide the image up in sections with squares, check which sq
 white. Then it will start with the largest 'clusters' of uni-coloured squares and create the circles. 
 It will keep doing this with squares in descending/decreasing size until it is done.  
 
+**REmember to change name**
 
 .. |br| raw:: html
 

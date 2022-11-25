@@ -2,7 +2,7 @@ Introduction
 ==============
 
 The topic we have chosen is **'pixels to circles'.** |br|
-The assignment is as follows: 
+The assignment is as follows : 
 
 ::  
     
@@ -25,7 +25,7 @@ The classes
 
     **Flowchart of our 3 main classes:**
 
-.. figure:: images/flowchart.*
+.. figure:: images/flowchart.png
     :width: 550 px
     :height: 300 px
 

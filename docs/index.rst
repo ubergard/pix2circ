@@ -10,7 +10,6 @@ Pixels to circles - Documentation by group 23
    :maxdepth: 2
    :caption: Content:
 
-
    introduction
    algorithms
    code_doc

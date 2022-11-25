@@ -8,11 +8,12 @@ Related to Image
 
 ``Image.cpp`` 
 
-.. image:: images/imagecpp1.png
+.. image:: images/imagecpp.png
 
 
 ``Image.h`` 
 
+.. image:: images/imageh.png
 
 
 Related to ImageConverter
@@ -20,14 +21,12 @@ Related to ImageConverter
 
 ``imageconverter.cpp`` 
 
-print screen her? code block? 
+.. image:: images/convertercpp.png
 
 
 ``imageconverter.h`` 
 
-dependencies? 
-
-asdfasdfasd
+.. image:: images/converterh.png
 
 
 Related to Circle

@@ -5,9 +5,7 @@ Code documentation
 Image
 -------
 
-Header file: ``image.h`` 
-
-Source code: :ref:`Related to Image`    
+Header file: ``image.h``   
 
 .. py:function:: Image::Image(std::string file_name)
 .. py:function:: void import_image(std::string file_name)
@@ -92,12 +90,12 @@ Source code: :ref:`Related to Image`
 
         :return: bool, values are set. 
 
+Source code: :ref:`Related to Image`  
+
 
 ImageConverter
 ----------------
 Header file: ``imageconverter.h`` 
-
-Source code: :ref:`Related to Image`
 
 .. py:function:: ImageConverter::ImageConverter()
 .. py:function:: void print_circles()
@@ -117,13 +115,12 @@ Source code: :ref:`Related to Image`
 
         :parameter wnated_circles: Value which specifies the number of circles to be placed by algorithm.
 
+Source code: :ref:`Related to Image`
 
 Circle
 --------
 
  Header file: ``imageconverter.h``
-
- Source code: :ref:`Related to Circle`
  
 .. py:function:: Circle::Circle(int x, int y, int r, int c)
 .. py:function:: int get_x_pos() const { return this->get_x_pos}
@@ -206,9 +203,9 @@ Circle
 
     :return bool: Tells if the circle is placed on a black pixel.
     
+ Source code: :ref:`Related to Circle`
 
-
-.. note:: evt noe her 
+.. note:: ``Circle`` is a nested class within imageconverter 
 
 
 
