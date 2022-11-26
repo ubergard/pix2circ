@@ -1,18 +1,18 @@
 
 #include <iostream>
-#include <string>
+#include <memory>
 
+// Can use image class with other features from imageconverter
 //#include "image.h"
 #include "imageconverter.h"
 
 #define terminal_input
 
-int main(int argc, char *argv[]) {
-  // Make image instance 
-  std::string file_name = "batman.txt";
+int main(int argc, char *argv[]) 
+{
+  // Start software
   std::cout << "\n"
-          << "Starting 'Image 2 circle' converter" << "\n"
-          << "File: " << file_name << "\n\n";
+          << "Starting 'Image 2 circle' converter" << "\n\n";
 
 
   int user_input = 1;
@@ -29,33 +29,30 @@ int main(int argc, char *argv[]) {
 #endif
   std::cout << "Circles wanted: " << user_input << '\n';
 
-  ImageConverter batman1; // = new ImageConverter;
-  batman1.import_image(file_name);
-  batman1.print_image();
-  batman1.print_dims();
+  std::string file_name = "batman.txt";
+  std::shared_ptr<ImageConverter> batman(new ImageConverter);
+  batman->import_image(file_name);
+  batman->print_image();
+  batman->print_dims();
 
-  batman1.bogo_algorithm(user_input);
-  batman1.print_circles();
+  batman->bogo_algorithm(user_input);
+  batman->print_circles();
 
 
   // Check pixel
-  //std::cout << batman1.check_pixel(26, 13) << '\n';
+  std::cout << batman->check_pixel(26, 13) << '\n';
 
-  
-  /* Can run multiple files... or algorithms,
-     but needs allocated memory */
   
   std::string file_name_2 = "kfc.txt";
-  ImageConverter *batman2 = new ImageConverter;
-  batman2->import_image(file_name_2);
-  batman2->print_image();
-  batman2->print_dims();
+  std::shared_ptr<ImageConverter> kfc(new ImageConverter);
+  kfc->import_image(file_name_2);
+  kfc->print_image();
+  kfc->print_dims();
 
-  batman2->bogo_algorithm(user_input);
-  batman2->print_circles();
-  
-  // Delete object after use
-  delete batman2;
+  kfc->bogo_algorithm(user_input);
+  kfc->print_circles();
+  std::cout<< '\n' << kfc->accuracy() << '\n';
+  kfc->approxinate_image(); 
 
   return 0;
 }

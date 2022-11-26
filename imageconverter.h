@@ -19,6 +19,7 @@ public:
     */
     void print_circles();
 
+
     // ------ Algorithms ------
     /** 
     * Bogo algorithm
@@ -30,6 +31,17 @@ public:
     */
     void bogo_algorithm(int wanted_circles);
 
+
+    void approxinate_image();
+
+    double accuracy();
+    double precision();
+    double recall();
+    double f1_score();
+    double Matthews_correlation_coefficient();
+
+    void evaluation_of_pixels(int &tp, int &tn, int &fp, int &fn);
+  
 
     class Circle
     {
@@ -139,6 +151,7 @@ private:
     int c_circles = 0;
     int run_counter = 0;
 
+    std::vector<std::vector<int>> approx_image;
     std::vector<Circle> circle_list;
 };
 

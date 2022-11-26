@@ -1,9 +1,6 @@
 
-#include <cstdlib>
 #include <fstream>
 #include <iostream>
-#include <string>
-#include <cassert>
 
 #include "image.h"
 
@@ -40,7 +37,7 @@ void Image::find_dims(std::string file_name)
       }
     }
     myFile.close();
-}
+  }
   dims[0] = rows;
   dims[1] = columns;
 }
@@ -61,10 +58,11 @@ void Image::image_make(std::string file_name)
 
   for (int m = 0; m < dims[0]; m++) 
   {
+    img_vector.push_back(std::vector<int>());
     std::getline(image_file, line);
     for (int n = 0; n < dims[1]; n++) 
     {
-      if(line[n] < 48)
+      if(line[n] < 48) // 
       {
         std::cout << "\n"
           << "Illegal character: '" << line[n] << "'" << "\n"
@@ -73,7 +71,7 @@ void Image::image_make(std::string file_name)
       }
       else
       {
-        img_array[m][n] = line[n] - 48;
+        img_vector[m].push_back(line[n] - 48);
       }
     }
   }
@@ -85,7 +83,8 @@ void Image::set_dims(int rows, int columns)
   dims[1] = columns;
 }
 
-void Image::print_dims(){
+void Image::print_dims()
+{
   if(!dims[1] || !dims[0])
   {
     std::cout << "Could not print dimensions!" << '\n';
@@ -104,29 +103,25 @@ void Image::print_image(){
     return;
   }
 
-
-  int m = dims[0];
-  int n = dims[1];
-
-  for (int m = 0; m < dims[0]; m++) 
+ for (int m = 0; m < dims[0]; m++) 
   {
     for (int n = 0; n < dims[1]; n++) 
     {
-      std::cout << img_array[m][n];
+      std::cout << img_vector[m][n];
     }
-      std::cout << '\n';
+    std::cout << '\n';
   }
 }
 
-
 bool Image::is_image_imported()
 {
-  if(!dims[1] || !dims[0] || !img_array[0][0])
+  if(!dims[1] || !dims[0] || !img_vector[0][0])
   {
     std::cout << "Please import the image first!!!" << '\n';
     return false;
   }
-  else{
+  else
+  {
     return true;
   }
 }

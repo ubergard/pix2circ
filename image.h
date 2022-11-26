@@ -1,7 +1,7 @@
 #ifndef IMAGE_H
 #define IMAGE_H
 
-#include <string>
+#include <vector>
 
 class Image
 {
@@ -77,7 +77,7 @@ public:
   *
   * @return int, the color value.
   */
-  int check_pixel(int x, int y){return img_array[y-1][x-1];}
+  int check_pixel(int x, int y){return img_vector[y-1][x-1];}
 
   /**
   * Image imported (Should be expanded!)
@@ -86,13 +86,15 @@ public:
   *        Checks dimensions and if atleast one pixel is given.
   *
   * @return bool, values are set.
-  */ 
+  */
   bool is_image_imported();
+
 
 protected:
   std::string image_name;
   int dims[2] = {0, 0};
-  int img_array[1024][1024];
+
+  std::vector<std::vector<int>> img_vector;
 };
 
 #endif
