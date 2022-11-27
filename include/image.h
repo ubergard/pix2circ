@@ -37,6 +37,20 @@ namespace imagecircles
     void print_image();
 
     /**
+    * Get image rows
+    *
+    * @brief Returns the images row (height)
+    */ 
+    int get_image_rows(){return dims[0];}
+
+    /**
+    * Get image columns
+    *
+    * @brief Returns the images columns (width)
+    */ 
+    int get_image_columns(){return dims[1];}
+
+    /**
     * Set dimensions
     *
     * @brief Sets the dimensions manually.

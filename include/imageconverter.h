@@ -20,6 +20,18 @@ namespace imagecircles
         */
         void print_circles();
 
+        /**
+        * Get amount of circles
+        *
+        * @brief Returns the number of circles in the circle list.
+        */ 
+        int get_amount_circles(){return circle_list.size();}
+
+        int get_circle_x_pos(int i){return circle_list[i].get_x_pos();}
+        int get_circle_y_pos(int i){return circle_list[i].get_y_pos();}
+        int get_circle_radius(int i){return circle_list[i].get_radius();}
+        int get_circle_color(int i){return circle_list[i].get_color();}
+
 
         // ------ Algorithms ------
         /** 
