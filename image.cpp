@@ -4,6 +4,7 @@
 
 #include "image.h"
 
+using namespace imagecircles;
 
 void Image::import_image(std::string file_name)
 {

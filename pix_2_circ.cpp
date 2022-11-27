@@ -8,6 +8,7 @@
 
 #define terminal_input
 
+
 int main(int argc, char *argv[]) 
 {
   // Start software
@@ -30,7 +31,7 @@ int main(int argc, char *argv[])
   std::cout << "Circles wanted: " << user_input << '\n';
 
   std::string file_name = "batman.txt";
-  std::shared_ptr<ImageConverter> batman(new ImageConverter);
+  std::unique_ptr<imagecircles::ImageConverter> batman(new imagecircles::ImageConverter);
   batman->import_image(file_name);
   batman->print_image();
   batman->print_dims();
@@ -44,7 +45,7 @@ int main(int argc, char *argv[])
 
   
   std::string file_name_2 = "kfc.txt";
-  std::shared_ptr<ImageConverter> kfc(new ImageConverter);
+  std::unique_ptr<imagecircles::ImageConverter> kfc(new imagecircles::ImageConverter);
   kfc->import_image(file_name_2);
   kfc->print_image();
   kfc->print_dims();

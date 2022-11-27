@@ -5,6 +5,7 @@
 #include "image.h"
 #include "imageconverter.h"
 
+using namespace imagecircles;
 
 void ImageConverter::bogo_algorithm(int wanted_circles)
 {
