@@ -1,11 +1,30 @@
+TARGET = pix_2_circ
 
-# Running C++ 11
-CXX=g++-11 -std=c++2a
-run: pix_2_circ
-	./pix_2_circ 20
+SRCS  = $(shell find ./src     -type f -name *.cpp)
+HEADS = $(shell find ./include -type f -name *.h)
+OBJS = $(SRCS:.cpp=.o)
+DEPS = Makefile.depend
 
-pix_2_circ: pix_2_circ.o image.o imageconverter.o 
-	$(CXX) -O2 -o pix_2_circ *.o
+CXX = g++-11
+INCLUDES = -I./include
+CXXFLAGS = -std=c++2a -O2 -Wall $(INCLUDES)
+LDFLAGS = -lm
+
+
+all: $(TARGET)
+
+$(TARGET): $(OBJS) $(HEADS)
+	$(CXX) $(LDFLAGS) -o $@ $(OBJS)
+
+run: all # 20 is added, since there must be circles provided
+	@./$(TARGET) 20 
+
+.PHONY: depend clean
+depend:
+	$(CXX) $(INCLUDES) -MM $(SRCS) > $(DEPS)
+	@sed -i -E "s/^(.+?).o: ([^ ]+?)\1/\2\1.o: \2\1/g" $(DEPS)
 
 clean:
-	rm -f *.o pix_2_circ
+	$(RM) $(OBJS) $(TARGET)
+
+-include $(DEPS)

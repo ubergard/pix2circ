@@ -28,7 +28,7 @@ void Image::find_dims(std::string file_name)
     while (std::getline(myFile, line))
     {
       rows++;
-      if (line.length() != columns) 
+      if (int(line.length()) != columns) 
       {
         std::cout << "\n\n" 
           << "AT LEAST ONE ROW HAVE LESS ENTRIES THAN OTHER LINES" << '\n'

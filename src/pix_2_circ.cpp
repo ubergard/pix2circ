@@ -43,7 +43,7 @@ int main(int argc, char *argv[])
   // Check pixel
   std::cout << batman->check_pixel(26, 13) << '\n';
 
-  
+
   std::string file_name_2 = "kfc.txt";
   std::unique_ptr<imagecircles::ImageConverter> kfc(new imagecircles::ImageConverter);
   kfc->import_image(file_name_2);
@@ -54,6 +54,7 @@ int main(int argc, char *argv[])
   kfc->print_circles();
   std::cout<< '\n' << kfc->accuracy() << '\n';
   kfc->approxinate_image(); 
+
 
   return 0;
 }
