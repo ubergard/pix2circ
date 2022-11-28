@@ -74,7 +74,7 @@ int main(int argc, char *argv[])
     kfc->get_circle_x_pos(i);
 
     dsk.x = kfc->get_circle_x_pos(i);
-    dsk.y = kfc->get_circle_x_pos(i);
+    dsk.y = kfc->get_circle_y_pos(i);
     dsk.r = kfc->get_circle_radius(i);
     dsk.colour = kfc->get_circle_color(i) * 255;
     dv.add_disk(dsk);
