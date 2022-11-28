@@ -27,9 +27,40 @@ namespace imagecircles
         */ 
         int get_amount_circles(){return circle_list.size();}
 
+        /**
+        * Get the x-position of a chosen circle
+        *
+        * @brief Returns the x-position of one circle from the list.
+        *
+        * @return x posistion[int]
+        */ 
         int get_circle_x_pos(int i){return circle_list[i].get_x_pos();}
+
+        /**
+        * Get the y-position of a chosen circle
+        *
+        * @brief Returns the y-position of one circle from the list.
+        *
+        * @return y posistion[int]
+        */ 
         int get_circle_y_pos(int i){return circle_list[i].get_y_pos();}
+
+        /**
+        * Get the radius of a chosen circle
+        *
+        * @brief Returns the radius of one circle from the list.
+        *
+        * @return r radius[int]
+        */
         int get_circle_radius(int i){return circle_list[i].get_radius();}
+
+        /**
+        * Gets the color of a chosen circle
+        *
+        * @brief Returns the color of one circle from the list.
+        *
+        * @return c color[int]
+        */ 
         int get_circle_color(int i){return circle_list[i].get_color();}
 
 
