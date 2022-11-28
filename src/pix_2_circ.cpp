@@ -4,7 +4,7 @@
 #include <fstream>
 #include <iostream>
 
-//#include <Magick++.h>
+#include <Magick++.h>
 
 // Can use image class with other features from imageconverter
 //#include "image.h"
@@ -104,7 +104,7 @@ int main(int argc, char *argv[])
   pixistrm.close();
   
 
-  /*
+  
   std::string infilename = "kfc.pxl";
   std::string outfilename = "kfc.bmp";
   if(argc > 1) infilename = argv[1];
@@ -125,7 +125,7 @@ int main(int argc, char *argv[])
   }
   img.quantize(2);
   img.write("kfc.bmp");
-  */
+  
 
 
   return 0;

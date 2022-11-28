@@ -7,14 +7,15 @@ DEPS = Makefile.depend
 
 CXX = g++-11
 INCLUDES = -I./include
-CXXFLAGS = -std=c++2a -O2 -Wall $(INCLUDES)
+CXXFLAGS = -std=c++2a -O2 -Wall $(INCLUDES) `Magick++-config --cppflags`
 LDFLAGS= -lm
+MAGICK_LIB = `Magick++-config --libs`
 
 
 all: $(TARGET)
 
 $(TARGET): $(OBJS) $(HEADS)
-	$(CXX) $(LDFLAGS) -o $@ $(OBJS)
+	$(CXX) $(LDFLAGS) -o $@ $(OBJS) $(MAGICK_LIB) 
 
 run: all # 20 is added, since there must be circles provided
 	@./$(TARGET) 20
