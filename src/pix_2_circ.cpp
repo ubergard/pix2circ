@@ -34,20 +34,19 @@ int main(int argc, char *argv[])
   user_input = 10;
 #endif
   std::cout << "Circles wanted: " << user_input << '\n';
+
   std::string filename(argv[1]);
+  std::unique_ptr<imagecircles::ImageConverter> infile(new imagecircles::ImageConverter);
+  infile->import_image(filename);
+  infile->print_image();
+  infile->print_dims();
 
-  std::string file_name_2 = filename;
-  std::unique_ptr<imagecircles::ImageConverter> kfc(new imagecircles::ImageConverter);
-  kfc->import_image(filename);
-  kfc->print_image();
-  kfc->print_dims();
-
-  kfc->bogo_algorithm(user_input);
-  kfc->print_circles();
+  infile->bogo_algorithm(user_input);
+  infile->print_circles();
 
 
-  //std::cout<< '\n' << kfc->accuracy() << '\n';
-  //kfc->approxinate_image(); 
+  //std::cout<< '\n' << infile->accuracy() << '\n';
+  //infile->approxinate_image(); 
 
 
 
@@ -56,39 +55,41 @@ int main(int argc, char *argv[])
   // Code provided from assignment
   // Generate image output
   diskgraphics::DiskVector dv;
-  dv.set_size(kfc->get_image_rows(), kfc->get_image_columns());
+  dv.set_size(infile->get_image_rows(), infile->get_image_columns());
   dv.set_background(255);
 
-  int amount_circles = kfc->get_amount_circles();
+  int amount_circles = infile->get_amount_circles();
   for(int i = 0; i < amount_circles; i++)
   {
     diskgraphics::Disk dsk;
-    kfc->get_circle_x_pos(i);
+    infile->get_circle_x_pos(i);
 
-    dsk.x = kfc->get_circle_x_pos(i);
-    dsk.y = kfc->get_circle_y_pos(i);
-    dsk.r = kfc->get_circle_radius(i);
-    dsk.colour = kfc->get_circle_color(i) * 255;
+    dsk.x = infile->get_circle_x_pos(i);
+    dsk.y = infile->get_circle_y_pos(i);
+    dsk.r = infile->get_circle_radius(i);
+    dsk.colour = infile->get_circle_color(i) * 255;
     dv.add_disk(dsk);
 
   }
   
 
   // Vector output
-  std::ofstream vctostrm("fileoutput.vct");
+  std::string filedata = filename + ".vct";
+  std::ofstream vctostrm(filedata);
   if(!vctostrm) return EXIT_FAILURE;
   vctostrm << dv;
   vctostrm.close();
   
   // Pixel conversion and output
+  std::string infilename = filename + ".pxl";
   diskgraphics::Charmap cm(dv);
-  //if(32 >= kfc->get_image_rows() || 32 >= kfc->get_image_columns() ) cm.out(&std::cout, true);  // if a small figure, also show on cout
-  std::ofstream pixostrm("fileoutput.pxl");
+  //if(32 >= infile->get_image_rows() || 32 >= infile->get_image_columns() ) cm.out(&std::cout, true);  // if a small figure, also show on cout
+  std::ofstream pixostrm(infilename);
   if(!pixostrm) return EXIT_FAILURE;
   pixostrm << cm;
   pixostrm.close();
 
-  std::ifstream pixistrm("fileoutput.pxl");
+  std::ifstream pixistrm(infilename);
   if(!pixistrm) return EXIT_FAILURE;
   diskgraphics::Charmap cn;
   pixistrm >> cn;
@@ -96,12 +97,7 @@ int main(int argc, char *argv[])
   pixistrm.close();
   
 
-  // Fixed filenames
-  std::string infilename = "fileoutput.pxl";
-  std::string outfilename = "fileoutput.png";
-  if(argc > 1) infilename = argv[1];
-  if(argc > 2) outfilename = argv[2];
-
+  std::string outfilename = filename + ".png";
   Magick::InitializeMagick(*argv);
   Magick::Image img(Magick::Geometry(cn.get_sizex(), cn.get_sizey()), "white"); 
   img.magick("PNG");
@@ -116,7 +112,7 @@ int main(int argc, char *argv[])
     }
   }
   img.quantize(2);
-  img.write("fileoutput.png");
+  img.write(outfilename);
   
 
 
