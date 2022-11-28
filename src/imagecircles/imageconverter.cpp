@@ -59,6 +59,7 @@ void ImageConverter::print_circles()
               << circle_list[i].get_color()
               << '\n';
   }
+  std::cout << "\n";
 }
 
 ImageConverter::Circle::Circle(int x, int y, int r, int c)

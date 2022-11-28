@@ -27,8 +27,8 @@ all: $(TARGET)
 $(TARGET): $(OBJS) $(HEADS)
 	$(CXX) $(LDFLAGS) -o $@ $(OBJS) $(MAGICK_LIB) 
 
-run: all # 20 is added, since there must be circles provided
-	@./$(TARGET) 20
+run: all # Default example
+	@./$(TARGET) kfc.txt 20
 
 .PHONY: depend clean
 depend:
@@ -36,6 +36,6 @@ depend:
 	@sed -i -E "s/^(.+?).o: ([^ ]+?)\1/\2\1.o: \2\1/g" $(DEPS)
 
 clean:
-	$(RM) $(OBJS) $(TARGET)
+	$(RM) $(OBJS) $(TARGET) *.png *.vct *.pxl
 
 -include $(DEPS)
