@@ -9,7 +9,7 @@ Where 0 = black and 1 = white |br|
 .. include:: ../kfc.txt
    :literal:
 
-**BOGO PLACE** |br|
+**Bogo place** |br|
 As this algorithm is a random -worst case algorithm, the test results was as expected, totally random in the range from
 all white to all black. |br|
 
@@ -17,7 +17,7 @@ The following 3 tests was done with only 20 circles:
 
 .. image:: /images/kfc_test_bogo_20.png
 
-The following 3 tests was done with 10 000: 
+The following 3 tests was done with 10 000 circles: 
 
 .. image:: /images/kfc_test_bogo_10k.png
    
