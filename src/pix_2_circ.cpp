@@ -60,7 +60,8 @@ int main(int argc, char *argv[])
   std::cout<< '\n' << kfc->accuracy() << '\n';
   kfc->approxinate_image(); 
 
-
+  // ----------------- Output code -----------------
+  // Code provided from assignment
   // Generate image output
   diskgraphics::DiskVector dv;
   dv.set_size(kfc->get_image_rows(), kfc->get_image_columns());

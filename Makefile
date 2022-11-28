@@ -1,3 +1,5 @@
+# Makefile is based on a standard makefile template
+
 TARGET = pix_2_circ
 
 SRCS  = $(shell find ./src     -type f -name *.cpp)
@@ -7,7 +9,9 @@ DEPS = Makefile.depend
 
 # Magick++
 MAGICK_CXX = `Magick++-config --cppflags`
-MAGICK_LIB = `Magick++-config --libs`
+MAGICK_LIB = `Magick++-config --ldflags --libs`
+#MAGICK_CXX = $(shell Magick++-config --cxxflags)
+#MAGICK_LIB = $(shell Magick++-config --ldflags --libs)
 
 
 # Use this for Mac
