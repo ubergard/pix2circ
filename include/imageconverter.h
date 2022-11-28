@@ -25,7 +25,7 @@ namespace imagecircles
         *
         * @brief Returns the number of circles in the circle list.
         */ 
-        int get_amount_circles(){return circle_list.size();}
+        int get_amount_circles(){return c_circles;}
 
         /**
         * Get the x-position of a chosen circle

@@ -42,7 +42,6 @@ int main(int argc, char *argv[])
   infile->print_dims();
 
   infile->bogo_algorithm(user_input);
-  infile->bogo_algorithm(user_input);
   infile->print_circles();
 
 
