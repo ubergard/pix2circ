@@ -6,7 +6,7 @@
 
 #include <Magick++.h>
 
-// Can use image class with other features from imageconverter
+// Can use image class without imageconverter and it's features
 //#include "image.h"
 #include "imageconverter.h"
 #include "charmap.h"
@@ -42,6 +42,7 @@ int main(int argc, char *argv[])
   infile->print_dims();
 
   infile->bogo_algorithm(user_input);
+  infile->bogo_algorithm(user_input);
   infile->print_circles();
 
 
@@ -56,7 +57,7 @@ int main(int argc, char *argv[])
   filename.erase(filename.length()-4, filename.length()); 
 
   diskgraphics::DiskVector dv;
-  dv.set_size(infile->get_image_rows(), infile->get_image_columns());
+  dv.set_size(infile->get_image_columns(), infile->get_image_rows());
   dv.set_background(255);
 
   int amount_circles = infile->get_amount_circles();
@@ -65,8 +66,8 @@ int main(int argc, char *argv[])
     diskgraphics::Disk dsk;
     infile->get_circle_x_pos(i);
 
-    dsk.x = infile->get_circle_x_pos(i);
-    dsk.y = infile->get_circle_y_pos(i);
+    dsk.y = infile->get_circle_x_pos(i);
+    dsk.x = infile->get_circle_y_pos(i);
     dsk.r = infile->get_circle_radius(i);
     dsk.colour = infile->get_circle_color(i) * 255;
     dv.add_disk(dsk);
@@ -94,7 +95,7 @@ int main(int argc, char *argv[])
   if(!pixistrm) return EXIT_FAILURE;
   diskgraphics::Charmap cn;
   pixistrm >> cn;
-  if(32 >= cn.get_sizex()) cn.out(&std::cout, true);
+  //if(32 >= cn.get_sizex()) cn.out(&std::cout, true);
   pixistrm.close();
   
 

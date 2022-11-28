@@ -63,6 +63,25 @@ namespace imagecircles
         */ 
         int get_circle_color(int i){return circle_list[i].get_color();}
 
+        /**
+        * Print approximate image
+        *
+        * @brief Prints the approximated image and if image is empty, it will display an error 
+        *        message and return from it.
+        */ 
+        void print_approx_image();
+
+
+        void approximate_image();
+
+        double accuracy();
+        double precision();
+        double recall();
+        double f1_score();
+        double matthews_correlation_coefficient();
+
+        void evaluation_of_pixels(int &tp, int &tn, int &fp, int &fn);
+
 
         // ------ Algorithms ------
         /** 
@@ -75,16 +94,15 @@ namespace imagecircles
         */
         void bogo_algorithm(int wanted_circles);
 
-
-        void approxinate_image();
-
-        double accuracy();
-        double precision();
-        double recall();
-        double f1_score();
-        double Matthews_correlation_coefficient();
-
-        void evaluation_of_pixels(int &tp, int &tn, int &fp, int &fn);
+        /** 
+        * Bogo algorithm modded (NOT COMPLETE)
+        *
+        * @brief This algorithm is based on bogo algorithm, but checks if the new placed circle increases it's accuracy.
+        *        Should look more like the original image, but is REALLY resource heavy.
+        *
+        * @param wanted_circles Value which speciefies the number of circles to be placed by algorithm
+        */
+        void bogo_modded(int wanted_circles);
     
 
         class Circle
