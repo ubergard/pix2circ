@@ -5,7 +5,7 @@
 #include "image.h"
 #include "imageconverter.h"
 
-
+using namespace imagecircles;
 void ImageConverter::bogo_algorithm(int wanted_circles)
 {
   n_circles = wanted_circles;
@@ -29,7 +29,7 @@ void ImageConverter::bogo_algorithm(int wanted_circles)
     // Set all values till random values
     int x = rand() % columns + 1;
     int y = rand() % rows + 1;
-    int r = rand() % radius_limit + 1;
+    int r = (rand() % radius_limit + 1)/(i+1) + 1;
     int c = rand() % 2;
 
     if (c_circles < n_circles-1)

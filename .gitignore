@@ -5,3 +5,7 @@
 !*.*
 .vscode
 *.o
+
+*.vct
+*.pxl
+*.bmp

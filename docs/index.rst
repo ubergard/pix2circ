@@ -10,19 +10,14 @@ Pixels to circles - Documentation by group 23
    :maxdepth: 2
    :caption: Content:
 
-
    introduction
    algorithms
    code_doc
    results
-   script
+   script 
+
 
    about_us
    readme
 
-Indices and tables
-==================
 
-* :ref:`genindex`
-* :ref:`modindex`
-* :ref:`search`

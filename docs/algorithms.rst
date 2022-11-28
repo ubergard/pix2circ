@@ -1,14 +1,14 @@
 Algorithms tested
 ===================
 We wanted to test more than one algorithm. This section contains the algorithms used  |br|
-We test algorithms with both random aswell as systematic approaches. |br|
+Algorithms that got tested was with both random aswell as systematic approaches. |br|
 
 'Bogo place'
 -----------------------
 This algorithm is loosely based on the poorly optimized random algorithm 'Bogo sort', hence the given name. 
 'Bogo place' works in the way that it places circles at random, with no clear structure. |br|
-We have chosen to include this algorithm as we want a worst case scenario to compare with. |br|
-It is expected that this algorithm will provide this. |br| 
+This algorithm was included as there was a need for a worst case scenario to compare with. |br|
+It is expected that this algorithm will provide this - the worst case scenario. |br| 
 
 
 
@@ -24,6 +24,7 @@ This algorithm will divide the image up in sections with squares, check which sq
 white. Then it will start with the largest 'clusters' of uni-coloured squares and create the circles. 
 It will keep doing this with squares in descending/decreasing size until it is done.  
 
+**REmember to change name**
 
 .. |br| raw:: html
 
