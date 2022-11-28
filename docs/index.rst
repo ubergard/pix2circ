@@ -20,9 +20,4 @@ Pixels to circles - Documentation by group 23
    about_us
    readme
 
-Indices and tables
-==================
 
-* :ref:`genindex`
-* :ref:`modindex`
-* :ref:`search`
