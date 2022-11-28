@@ -5,11 +5,15 @@ HEADS = $(shell find ./include -type f -name *.h)
 OBJS = $(SRCS:.cpp=.o)
 DEPS = Makefile.depend
 
+# Magick++
+MAGICK_CXX = `Magick++-config --cppflags`
+MAGICK_LIB = `Magick++-config --libs`
+
+
 CXX = g++-11
 INCLUDES = -I./include
-CXXFLAGS = -std=c++2a -O2 -Wall $(INCLUDES) `Magick++-config --cppflags`
+CXXFLAGS = -std=c++2a -O2 -Wall $(INCLUDES) $(MAGICK_CXX)
 LDFLAGS= -lm
-MAGICK_LIB = `Magick++-config --libs`
 
 
 all: $(TARGET)
