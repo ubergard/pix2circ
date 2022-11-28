@@ -28,7 +28,7 @@ $(TARGET): $(OBJS) $(HEADS)
 	$(CXX) $(LDFLAGS) -o $@ $(OBJS) $(MAGICK_LIB) 
 
 run: all # 20 is added, since there must be circles provided
-	@./$(TARGET) 20
+	@./$(TARGET) kfc.txt 20
 
 .PHONY: depend clean
 depend:

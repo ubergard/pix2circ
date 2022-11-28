@@ -23,7 +23,7 @@ int main(int argc, char *argv[])
 
   int user_input = 1;
 #if defined(terminal_input)
-  user_input = std::stoi(argv[1]);
+  user_input = std::stoi(argv[2]);
   if(user_input < 1)
   {
     std::cout << "PLEASE PROVIDE A VALID NUMBER!!!" << '\n'
@@ -34,33 +34,25 @@ int main(int argc, char *argv[])
   user_input = 10;
 #endif
   std::cout << "Circles wanted: " << user_input << '\n';
+  std::string filename(argv[1]);
 
-  std::string file_name = "batman.txt";
-  std::unique_ptr<imagecircles::ImageConverter> batman(new imagecircles::ImageConverter);
-  batman->import_image(file_name);
-  batman->print_image();
-  batman->print_dims();
-
-  batman->bogo_algorithm(user_input);
-  batman->print_circles();
-
-
-  // Check pixel
-  std::cout << batman->check_pixel(26, 13) << '\n';
-
-
-  std::string file_name_2 = "kfc.txt";
+  std::string file_name_2 = filename;
   std::unique_ptr<imagecircles::ImageConverter> kfc(new imagecircles::ImageConverter);
-  kfc->import_image(file_name_2);
+  kfc->import_image(filename);
   kfc->print_image();
   kfc->print_dims();
 
   kfc->bogo_algorithm(user_input);
   kfc->print_circles();
-  std::cout<< '\n' << kfc->accuracy() << '\n';
-  kfc->approxinate_image(); 
 
-  // ----------------- Output code -----------------
+
+  //std::cout<< '\n' << kfc->accuracy() << '\n';
+  //kfc->approxinate_image(); 
+
+
+
+
+  // ----------------- Output code (provided) -----------------
   // Code provided from assignment
   // Generate image output
   diskgraphics::DiskVector dv;
@@ -82,22 +74,21 @@ int main(int argc, char *argv[])
   }
   
 
-  // vector output
-  std::ofstream vctostrm("kfc.vct");
+  // Vector output
+  std::ofstream vctostrm("fileoutput.vct");
   if(!vctostrm) return EXIT_FAILURE;
   vctostrm << dv;
   vctostrm.close();
   
-  // pixel conversion and output
-  //
+  // Pixel conversion and output
   diskgraphics::Charmap cm(dv);
-  if(32 >= kfc->get_image_rows() || 32 >= kfc->get_image_columns() ) cm.out(&std::cout, true);  // if a small figure, also show on cout
-  std::ofstream pixostrm("kfc.pxl");
+  //if(32 >= kfc->get_image_rows() || 32 >= kfc->get_image_columns() ) cm.out(&std::cout, true);  // if a small figure, also show on cout
+  std::ofstream pixostrm("fileoutput.pxl");
   if(!pixostrm) return EXIT_FAILURE;
   pixostrm << cm;
   pixostrm.close();
 
-  std::ifstream pixistrm("kfc.pxl");
+  std::ifstream pixistrm("fileoutput.pxl");
   if(!pixistrm) return EXIT_FAILURE;
   diskgraphics::Charmap cn;
   pixistrm >> cn;
@@ -105,9 +96,9 @@ int main(int argc, char *argv[])
   pixistrm.close();
   
 
-  
-  std::string infilename = "kfc.pxl";
-  std::string outfilename = "kfc.png";
+  // Fixed filenames
+  std::string infilename = "fileoutput.pxl";
+  std::string outfilename = "fileoutput.png";
   if(argc > 1) infilename = argv[1];
   if(argc > 2) outfilename = argv[2];
 
@@ -125,7 +116,7 @@ int main(int argc, char *argv[])
     }
   }
   img.quantize(2);
-  img.write("kfc.png");
+  img.write("fileoutput.png");
   
 
 
