@@ -127,6 +127,7 @@ Header file: ``imageconverter.h``
 
     :brief: Returns the number of circles in the circle list.
 
+
 .. py:function:: int get_circle_x_pos(int i){return circle_list[i].get_x_pos()}
     
     Get x position
@@ -160,9 +161,9 @@ Header file: ``imageconverter.h``
     Bogo algorithm
 
         :brief: Bogo algorithm tries to make the worst case scenario for placing circles, 
-                by randomply placing them, with a random size, only limited by the image diagonal. |br| |br|
+                by randomly placing them, with a random size, only limited by the image diagonal. |br| |br|
 
-        :parameter wnated_circles: Value which specifies the number of circles to be placed by algorithm.
+        :parameter wanted_circles: Value which specifies the number of circles to be placed by algorithm.
 
 Source code: :ref:`Related to Image`
 
