@@ -35,6 +35,21 @@ Header file: ``image.h``
                 and return from it.
 
 
+
+.. py:function:: int get_image_rows(){return dims[0]} 
+
+    Get image rows
+
+        :brief: Returns the images row (height) 
+
+
+.. py:function:: int get_image_columns(){return dims[1]} 
+
+    Get image columns
+
+        :brief: Returns the image columns (width)
+
+
 .. py:function:: void set_dims(int rows, int columns)
    
     Set dimensions
@@ -104,6 +119,40 @@ Header file: ``imageconverter.h``
 
     :brief: Will iterate through the circle_list[vector] and print the values of the circles in
             the terminal.
+
+
+.. py:function:: int get_amount_circles(){return circle_list.size()}
+
+    Get amount of circles
+
+    :brief: Returns the number of circles in the circle list.
+
+.. py:function:: int get_circle_x_pos(int i){return circle_list[i].get_x_pos()}
+    
+    Get x position
+
+    :brief: Returns the x positions from the circle list.
+
+
+.. py:function:: int get_circle_y_pos(int i){return circle_list[i].get_y_pos()}
+
+    Get y position
+
+    :brief: Returns the y positions from the circle list.
+
+
+.. py:function:: int get_circle_radius(int i){return circle_list[i].get_radius()}
+
+    Get circle radius
+
+    :brief: Returns the circle radius from the circle list.
+
+
+.. py:function:: int get_circle_color(int i){return circle_list[i].get_color()}
+
+    Get circle color 
+
+    :brief: Returns the circle color from the circle list. 
 
 
 .. py:function:: void bogo_algorithm(int wnated_circles)
