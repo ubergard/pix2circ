@@ -35,7 +35,7 @@ void ImageConverter::bogo_algorithm(int wanted_circles)
     if (c_circles < n_circles-1)
     {
         c_circles++;
-        circle_list.push_back(ImageConverter::Circle(x,y,r, c));
+        circle_list.push_back(ImageConverter::Circle(x,y,r,c));
     }
     else
     {

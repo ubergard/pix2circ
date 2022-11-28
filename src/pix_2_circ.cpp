@@ -60,7 +60,8 @@ int main(int argc, char *argv[])
   std::cout<< '\n' << kfc->accuracy() << '\n';
   kfc->approxinate_image(); 
 
-
+  // ----------------- Output code -----------------
+  // Code provided from assignment
   // Generate image output
   diskgraphics::DiskVector dv;
   dv.set_size(kfc->get_image_rows(), kfc->get_image_columns());
@@ -106,13 +107,13 @@ int main(int argc, char *argv[])
 
   
   std::string infilename = "kfc.pxl";
-  std::string outfilename = "kfc.bmp";
+  std::string outfilename = "kfc.png";
   if(argc > 1) infilename = argv[1];
   if(argc > 2) outfilename = argv[2];
 
   Magick::InitializeMagick(*argv);
   Magick::Image img(Magick::Geometry(cn.get_sizex(), cn.get_sizey()), "white"); 
-  img.magick("BMP");
+  img.magick("PNG");
   img.monochrome();
   img.type(Magick::BilevelType);
   
@@ -124,7 +125,7 @@ int main(int argc, char *argv[])
     }
   }
   img.quantize(2);
-  img.write("kfc.bmp");
+  img.write("kfc.png");
   
 
 
