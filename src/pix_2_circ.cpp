@@ -49,11 +49,12 @@ int main(int argc, char *argv[])
   //infile->approxinate_image(); 
 
 
-
-
   // ----------------- Output code (provided) -----------------
-  // Code provided from assignment
-  // Generate image output
+  // Code provided from assignment to generate image output
+
+  // Remove file prefix (.txt)
+  filename.erase(filename.length()-4, filename.length()); 
+
   diskgraphics::DiskVector dv;
   dv.set_size(infile->get_image_rows(), infile->get_image_columns());
   dv.set_background(255);
