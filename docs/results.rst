@@ -1,32 +1,29 @@
 Results
 =======
 
-For the first round worth of testing, a binary image of the KFC logo was converted to 1's and 0's. |br|
-
-
-
+To test the algorithms, a binary image of the KFC logo was converted to 1's and 0's. |br|
 
 .. image:: images/kfc_converter.png
 
 
 **Bogo place** |br|
 As this algorithm is a random -worst case algorithm, the test results was as expected, totally random in the range from
-all white to all black. |br|
+all white to all black. As shown, run with both 20 circles and 1000, the results make no sense. Which in turn make alot 
+of sense as this is an *all* random algorithm. 
 
-The following 3 tests was done with only 20 circles:
-
-.. image:: /images/kfc_test_bogo_20.png
-
-The following 3 tests was done with 10 000 circles: 
-
-.. image:: /images/kfc_test_bogo_10k.png
-   
+.. image:: images/kfc_test_bogo_group.png
 
 
+**Modified bogo place - Circle version** |br| 
+Even though the results shown is not subpar, the performance is. 
+If this version is run with for example 1500 circles, it might not even finish running, as bogo place is still randomly placed. 
 
-**modified bogo place** gjorde det noe bedre som sett under |br|
-resultat resultat |br|
+.. image:: images/kfc_test_modbogo_group.png
 
+
+
+**Modified bogo place - Accuracy version** |br|
+The second version of the modded bogo place, with t
 
 *Placeholder name* gjorde det sånn her bra |br|
 resultat resultat |br|

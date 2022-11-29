@@ -173,6 +173,17 @@ Header file: ``imageconverter.h``
 
     :parameter wanted_circles: Value which specifies the number of circles to be placed by algorithm.
 
+
+.. py:function:: void bogo_modded(int wanted_circles)
+
+    Bogo algorithm modded ( NOT complete)
+
+    :brief: This algorithm is based on bogo algorithm , but checks if the new placed circle increases it's accuracy.
+            Should look more like the original image, but is REALLY resource heavy. |br| |br|
+    
+    :parameter wanted_circles: Value which specifies the number of circles to be placed by algorithm
+
+
 Source code: :ref:`Related to Image`
 
 Circle
