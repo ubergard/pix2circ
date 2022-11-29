@@ -2,12 +2,12 @@ Results
 =======
 
 For the first round worth of testing, a binary image of the KFC logo was converted to 1's and 0's. |br|
-Where 0 = black and 1 = white |br|
 
 
 
-.. include:: ../kfc.txt
-   :literal:
+
+.. image:: images/kfc_converter.png
+
 
 **Bogo place** |br|
 As this algorithm is a random -worst case algorithm, the test results was as expected, totally random in the range from
