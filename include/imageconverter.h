@@ -95,14 +95,14 @@ namespace imagecircles
         void bogo_algorithm(int wanted_circles);
 
         /** 
-        * Bogo algorithm modded (NOT COMPLETE)
+        * Bogo algorithm modded
         *
-        * @brief This algorithm is based on bogo algorithm, but checks if the new placed circle increases it's accuracy.
-        *        Should look more like the original image, but is REALLY resource heavy.
+        * @brief This algorithm is based on bogo algorithm, but checks if accuracy increases, and if it does, 
+        *        it will keep the circle. It many circles is needed, it will scale the circles down.        
         *
-        * @param wanted_circles Value which speciefies the number of circles to be placed by algorithm
+        * @param accuracy_wanted Value which speciefies the accuracy threshold
         */
-        void bogo_modded(int wanted_circles);
+        void bogo_modded(int accuracy_wanted);
 
         void random_place_algo(int wanted_circles);
     

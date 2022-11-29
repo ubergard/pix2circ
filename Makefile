@@ -28,7 +28,7 @@ $(TARGET): $(OBJS) $(HEADS)
 	$(CXX) $(LDFLAGS) -o $@ $(OBJS) $(MAGICK_LIB) 
 
 run: all # Default example
-	@./$(TARGET) batman.txt 10
+	@./$(TARGET) batman.txt 2 60
 
 .PHONY: depend clean
 depend:
