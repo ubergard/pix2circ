@@ -22,21 +22,21 @@ The different algorithms work in different ways, for Bogo place and the *placeho
 **Example for running Bogo place:** <br />
 
 ```
-./pix2circ 1 kfc.txt 500
+./pix2circ kfc.txt 1 500
 ```
 This will run the *bogo place* algorithm, on the kfc image, with 500 circles. <br />
 
 **Example for running Directed random place:** <br />
 
 ```
-./pix2circ 2 batman.txt 1000
+./pix2circ batman.txt 2 1000
 ```
 This will run the *directed random place* algorithm, on the batman logo, with 1000 circles. <br />
 
 **Example for running Bogo feedback:** 
 
 ```
-./pix2circ 3 kfc.txt 99
+./pix2circ kfc.txt 3 99
 ```
 This will run the *bogo feedback* algorithm, on the kfc image, with 99% accuracy. <br />
 
