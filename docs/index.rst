@@ -19,6 +19,7 @@ Pixels to circles - Documentation by group 23
 
 
    about_us
+   contributions
    readme
 
 
