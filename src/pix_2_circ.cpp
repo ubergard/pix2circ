@@ -33,7 +33,7 @@ int main(int argc, char *argv[])
 #else
   user_input = 10;
 #endif
-  std::cout << "Circles wanted: " << user_input << '\n';
+  std::cout << "Number inputed: " << user_input << '\n';
 
   std::string filename(argv[1]);
   std::unique_ptr<imagecircles::ImageConverter> infile(new imagecircles::ImageConverter);
@@ -42,8 +42,13 @@ int main(int argc, char *argv[])
   infile->print_dims();
 
   infile->bogo_modded(user_input);
-  infile->print_circles();
+  
+  if(infile->get_amount_circles() < 50)
+  {
+    infile->print_circles();
+  }
 
+  std::cout << "Circles generated: " << infile->get_amount_circles() << '\n';
 
   //std::cout<< '\n' << infile->accuracy() << '\n';
   //infile->approxinate_image(); 
