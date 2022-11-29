@@ -26,10 +26,35 @@ namespace imagecircles
         * @brief Returns the number of circles in the circle list.
         */ 
         int get_amount_circles(){return circle_list.size();}
-
+        /**
+         * @brief Get the circle x pos object
+         * 
+         * @param i 
+         * @return int 
+         */
         int get_circle_x_pos(int i){return circle_list[i].get_x_pos();}
+
+        /**
+         * @brief Get the circle y pos object
+         * 
+         * @param i 
+         * @return int 
+         */
         int get_circle_y_pos(int i){return circle_list[i].get_y_pos();}
+        /**
+         * @brief Get the circle radius object
+         * 
+         * @param i 
+         * @return int 
+         */
         int get_circle_radius(int i){return circle_list[i].get_radius();}
+        
+        /**
+         * @brief Get the circle color object
+         * 
+         * @param i 
+         * @return int 
+         */
         int get_circle_color(int i){return circle_list[i].get_color();}
 
 

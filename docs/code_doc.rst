@@ -12,27 +12,27 @@ Header file: ``image.h``
 
     Import image
 
-        :brief: Imports the image based on the filename. It will use the "find dims()"
-                to find and check the dimensions of the image, and then "image_make()" to set the pixels value to
-                the img_array. |br| |br|
+    :brief: Imports the image based on the filename. It will use the "find dims()"
+            to find and check the dimensions of the image, and then "image_make()" to set the pixels value to
+            the img_array. |br| |br|
 
-        :parameter file_name: A string, contains the file name
+    :parameter file_name: A string, contains the file name
 
 
 .. py:function:: void print_dims()
     
     Print dimensions
 
-        :brief: Print the dimensions, if the dimension are not set, it will display an error
-                message and return it.
+    :brief: Print the dimensions, if the dimension are not set, it will display an error
+            message and return it.
 
 
 .. py:function:: void print_image()
 
     Print image
 
-        :brief: Prints the image and if the dimension are not set, it willl display an error message
-                and return from it.
+    :brief: Prints the image and if the dimension are not set, it willl display an error message
+            and return from it.
 
 
 
@@ -40,70 +40,70 @@ Header file: ``image.h``
 
     Get image rows
 
-        :brief: Returns the images row (height) 
+    :brief: Returns the images row (height) 
 
 
 .. py:function:: int get_image_columns(){return dims[1]} 
 
     Get image columns
 
-        :brief: Returns the image columns (width)
+    :brief: Returns the image columns (width)
 
 
 .. py:function:: void set_dims(int rows, int columns)
    
     Set dimensions
 
-        :brief: Sets the dimensions manually. To be used for custom size of image and/or buypass
-                the control check of consistency. |br| |br|
+    :brief: Sets the dimensions manually. To be used for custom size of image and/or buypass
+            the control check of consistency. |br| |br|
 
-        :parameter rows: Holds the number of rows
-        :parameter columns: Holds the number of columns
+    :parameter rows: Holds the number of rows
+    :parameter columns: Holds the number of columns
 
 
 .. py:function:: void find dims(std::String file_name)
 
     Find dimensions
 
-        :brief: Will find the first columns-length and ensure all other columns have the same length.
+    :brief: Will find the first columns-length and ensure all other columns have the same length.
                 Will abort if one column is inconsistent.
                 Stores the dimensions if all checks out. |br| |br|
 
-        :parameter file_name: A string
+    :parameter file_name: A string
 
 
 .. py:function:: void image_make(std::String file_name)
 
     Make image
 
-        :brief: Imports the image based on the filename. It will check if the dimensions are set
-                and if not, run "find_dims()" and then run through all the pixels in the image and
-                store the values on a 2D array. This function and "set_dims()" can be used for custom
-                size of an image. |br| |br|
+    :brief: Imports the image based on the filename. It will check if the dimensions are set
+            and if not, run "find_dims()" and then run through all the pixels in the image and
+            store the values on a 2D array. This function and "set_dims()" can be used for custom
+            size of an image. |br| |br|
 
-        :parameter file_name: A string
+    :parameter file_name: A string
 
 
 .. py:function:: int check_pixel(int x, int y){return img_array[y-1][x-1]}
 
     Check pixels
 
-        :brief: Returns the pixel/color value of a given position(input). |br| |br|
+    :brief: Returns the pixel/color value of a given position(input). |br| |br|
 
-        :parameter x: Holds the column position of the pixel.
-        :parameter y: Holds the row position of the pixel. |br| |br|
+    :parameter x: Holds the column position of the pixel.
+    :parameter y: Holds the row position of the pixel. |br| |br|
 
-        :return: int, the colour value. 
+    :return: int, the colour value. 
 
 
 .. py:function:: bool is_image_imported()
 
     Image imported (should be expanded!)
 
-        :brief: Checks if all the required values are set for operations for an image. 
-                Checks dimensions nad if atleast one pixel is given. |br| |br|
-
-        :return: bool, values are set. 
+    :brief: Checks if all the required values are set for operations for an image. 
+            Checks dimensions nad if atleast one pixel is given. |br| |br|
+        
+    :return: bool, values are set. 
 
 Source code: :ref:`Related to Image`  
 
@@ -132,38 +132,46 @@ Header file: ``imageconverter.h``
     
     Get x position
 
-    :brief: Returns the x positions from the circle list.
-
+    :brief: Returns the x positions from the circle list. |br| |br|
+    :parameter: **i** 
+    
+    :return: int
 
 .. py:function:: int get_circle_y_pos(int i){return circle_list[i].get_y_pos()}
 
     Get y position
 
-    :brief: Returns the y positions from the circle list.
-
+    :brief: Returns the y positions from the circle list.|br| |br|
+    :parameter: **i**  
+    
+    :return: int
 
 .. py:function:: int get_circle_radius(int i){return circle_list[i].get_radius()}
 
     Get circle radius
 
-    :brief: Returns the circle radius from the circle list.
-
+    :brief: Returns the circle radius from the circle list. |br| |br|
+    :parameter: **i**  
+    
+    :return: int
 
 .. py:function:: int get_circle_color(int i){return circle_list[i].get_color()}
 
     Get circle color 
 
-    :brief: Returns the circle color from the circle list. 
+    :brief: Returns the circle color from the circle list. |br| |br|
+    :parameter: **i** 
+    
+    :return: int
 
-
-.. py:function:: void bogo_algorithm(int wnated_circles)
+.. py:function:: void bogo_algorithm(int wanted_circles)
 
     Bogo algorithm
 
-        :brief: Bogo algorithm tries to make the worst case scenario for placing circles, 
-                by randomly placing them, with a random size, only limited by the image diagonal. |br| |br|
+    :brief: Bogo algorithm tries to make the worst case scenario for placing circles, 
+            by randomly placing them, with a random size, only limited by the image diagonal. |br| |br|
 
-        :parameter wanted_circles: Value which specifies the number of circles to be placed by algorithm.
+    :parameter wanted_circles: Value which specifies the number of circles to be placed by algorithm.
 
 Source code: :ref:`Related to Image`
 
@@ -172,6 +180,8 @@ Circle
 
  Header file: ``imageconverter.h``
  
+ .. note:: ``Circle`` is a nested class within imageconverter.
+
 .. py:function:: Circle::Circle(int x, int y, int r, int c)
 .. py:function:: int get_x_pos() const { return this->get_x_pos}
     
@@ -244,6 +254,7 @@ Circle
 
     :parameter c: Int, contains the color. 
 
+
 .. py:function:: bool check_circle() 
 
     Check circle (not finished)
@@ -252,10 +263,14 @@ Circle
             Will store relevant data. |br| |br|
 
     :return bool: Tells if the circle is placed on a black pixel.
-    
+
+
+|br|
  Source code: :ref:`Related to Circle`
 
-.. note:: ``Circle`` is a nested class within imageconverter 
+ 
+
+ 
 
 
 
