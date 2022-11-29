@@ -103,6 +103,8 @@ namespace imagecircles
         * @param wanted_circles Value which speciefies the number of circles to be placed by algorithm
         */
         void bogo_modded(int wanted_circles);
+
+        void random_place_algo(int wanted_circles);
     
 
         class Circle

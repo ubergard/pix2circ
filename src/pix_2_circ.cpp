@@ -41,9 +41,7 @@ int main(int argc, char *argv[])
   infile->print_image();
   infile->print_dims();
 
-  infile->bogo_modded(user_input);
-  infile->print_circles();
-
+  infile->random_place_algo(user_input);
 
   //std::cout<< '\n' << infile->accuracy() << '\n';
   //infile->approxinate_image(); 
