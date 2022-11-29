@@ -46,7 +46,12 @@ int main(int argc, char *argv[])
   {
     infile->bogo_algorithm(user_input);
   }
-  else{
+  else if(user_algo == 2)
+  {
+    infile->random_place_algo(user_input);
+  }
+  else
+  {
     infile->bogo_modded(user_input);
   }
   

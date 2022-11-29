@@ -15,8 +15,8 @@ MAGICK_LIB = `Magick++-config --ldflags --libs`
 
 
 # Use this for Mac
-CXX = clang++
-#CXX = g++-11
+#CXX = clang++
+CXX = g++-11
 INCLUDES = -I./include
 CXXFLAGS = -std=c++2a -O2 -Wall $(INCLUDES) $(MAGICK_CXX)
 LDFLAGS= -lm

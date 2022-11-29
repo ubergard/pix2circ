@@ -68,7 +68,8 @@ void ImageConverter::bogo_modded(int accuracy_wanted)
   double accuracy_perc = double(accuracy_wanted)/ double(100);
 
   int i = 1;
-  int scale_rad = 2;
+  int scale_rad = 1.5;
+  int stuck_counter = 0;
   while(accuracy_prev <= accuracy_perc)
   {
     // Set all values till random values
@@ -88,12 +89,13 @@ void ImageConverter::bogo_modded(int accuracy_wanted)
     circle_list[i].set_radius(r);
     circle_list[i].set_color(c);
 
-
+    stuck_counter++;
     double accuracy_new = accuracy();
     if (accuracy_new > accuracy_prev) 
     {
       i++;
       accuracy_prev = accuracy_new;
+      stuck_counter = 0;
     }
 
     // Scale up, if current radius don't work
@@ -107,7 +109,14 @@ void ImageConverter::bogo_modded(int accuracy_wanted)
       circle_list.clear();
       circle_list.push_back(ImageConverter::Circle(0,0,radius_limit, 0));
     }
+
+    if(stuck_counter > 100000)
+    {
+      std::cout << "Converged on accuracy : "<< accuracy_new*100 << "\n";
+      return;
+    }
   }
+  std::cout << "Accuracy gotten : "<< accuracy_wanted << "\n";
 }
 
 void ImageConverter::random_place_algo(int wanted_circles){
@@ -135,7 +144,8 @@ void ImageConverter::random_place_algo(int wanted_circles){
 
   double accuracy_prev = 0;
   double accuracy_new = 0;
-  while(i < wanted_circles) {
+  while(i < wanted_circles) 
+  {
     //int r = radius_limit / wanted_circles + 2;
     int y = rand() % columns + 1;
     int x = rand() % rows + 1;
@@ -155,34 +165,39 @@ void ImageConverter::random_place_algo(int wanted_circles){
     circle_list[i].set_color(1);
     double white_acc = accuracy();
 
-    if (white_acc > black_acc) {
+    if (white_acc > black_acc) 
+    {
       accuracy_new = white_acc;
-    } else {
+    } else 
+    {
       circle_list[i].set_color(0);
-       accuracy_new = black_acc;
+      accuracy_new = black_acc;
     }
+
     if (accuracy_new > accuracy_prev) 
-      {
-        i++;
-        accuracy_prev = accuracy_new;
-        no_progress = 0;
-      } else{
+    {
+      i++;
+      accuracy_prev = accuracy_new;
+      no_progress = 0;
+    } else
+    {
       no_progress++;
     }
-    if (no_progress > 10 && r>1) {
+
+    if (no_progress > 500 && r>2) 
+    {
       no_progress = 0;
       r--;
-    
-    if (no_progress > 20) {
-        int number_of_circles = circle_list.size();
-        std::cout << '\nNumbers of circls:' << number_of_circles << '\n';
-        break;
-      }
-
     }
-    std::cout<<r<<' ' <<i<< 'r' << '\n';
+    
+    if (no_progress > 501) 
+    {
+      int number_of_circles = circle_list.size();
+      std::cout << '\n' << "Numbers of circls: " << number_of_circles << '\n';
+      break;
     }
   }
+}
 
 
 void ImageConverter::print_circles()
