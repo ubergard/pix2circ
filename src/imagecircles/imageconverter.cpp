@@ -26,6 +26,7 @@ void ImageConverter::bogo_algorithm(int wanted_circles)
   }
 
   circle_list.push_back(ImageConverter::Circle(0,0,radius_limit, 1));
+  c_circles++;
 
   for(int i = 1; i < wanted_circles; i++)
   {
@@ -57,42 +58,39 @@ void ImageConverter::bogo_modded(int wanted_circles)
   {
     circle_list.clear();
     circle_list.shrink_to_fit();
-
-    approx_image.clear();
-    approx_image.shrink_to_fit();
   }
 
+  c_circles = 0;
   circle_list.push_back(ImageConverter::Circle(0,0,radius_limit, 0));
+  c_circles++;
 
   double accuracy_prev = 0;
 
-  c_circles = 0;
-  for(int i = 1; i < wanted_circles;)
+  int i = 1;
+  while(i < wanted_circles)
   {
     // Set all values till random values
-    int x = rand() % columns + 1;
-    int y = rand() % rows + 1;
-    int r = (rand() % radius_limit + 1)/(i+1) + 1;
-    int c = 1; // rand() % 2;
+    int y = rand() % columns + 1;
+    int x = rand() % rows + 1;
+    int r = radius_limit / wanted_circles + 2;
+    int c = rand() % 2;
 
-    if (c_circles < n_circles-1) 
+    if(c_circles == i)
     {
       circle_list.push_back(ImageConverter::Circle(x,y,r,c));
-    }
-    else
-    {
-      circle_list[i].set_x_pos(x);
-      circle_list[i].set_y_pos(y);
-      circle_list[i].set_radius(r);
-      circle_list[i].set_color(c);
+      c_circles++;
     }
 
+    circle_list[i].set_x_pos(x);
+    circle_list[i].set_y_pos(y);
+    circle_list[i].set_radius(r);
+    circle_list[i].set_color(c);
+
+
     double accuracy_new = accuracy();
-    std::cout << accuracy_new <<  ", " << accuracy_prev<<"\n";
-    if(accuracy_new >= accuracy_prev)
+    if (accuracy_new > accuracy_prev) 
     {
       i++;
-      c_circles++;
       accuracy_prev = accuracy_new;
     }
   }
@@ -165,22 +163,22 @@ void ImageConverter::print_approx_image(){
 }
 
 void ImageConverter::approximate_image(){
-  if(approx_image.empty())
+  std::vector<std::vector<int>> approx_image_swap;
+  approx_image.swap(approx_image_swap);
+
+  for (int m = 0; m < dims[0]; m++) 
   {
-    for (int m = 0; m < dims[0]; m++) 
+    approx_image.push_back(std::vector<int>());
+    for (int n = 0; n < dims[1]; n++)
     {
-      approx_image.push_back(std::vector<int>());
-      for (int n = 0; n < dims[1]; n++)
-      {
-        approx_image[m].push_back(0);
-      }
+      approx_image[m].push_back(0);
     }
   }
 
 
-  for(int i = 0; i < c_circles; i++)
+  int i = 0;
+  while(i < c_circles)
   {
-  
     int x = circle_list[i].get_x_pos();
     int y = circle_list[i].get_y_pos();
     int r = circle_list[i].get_radius();
@@ -229,6 +227,7 @@ void ImageConverter::approximate_image(){
       }
       x0++;
     }
+    i++;
   }
 }
 

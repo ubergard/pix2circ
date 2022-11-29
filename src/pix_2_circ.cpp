@@ -41,7 +41,7 @@ int main(int argc, char *argv[])
   infile->print_image();
   infile->print_dims();
 
-  infile->bogo_algorithm(user_input);
+  infile->bogo_modded(user_input);
   infile->print_circles();
 
 
