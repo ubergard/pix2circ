@@ -25,37 +25,62 @@ namespace imagecircles
         *
         * @brief Returns the number of circles in the circle list.
         */ 
-        int get_amount_circles(){return circle_list.size();}
+        int get_amount_circles(){return c_circles;}
+
         /**
-         * @brief Get the circle x pos object
-         * 
-         * @param i 
-         * @return int 
-         */
+        * Get the x-position of a chosen circle
+        *
+        * @brief Returns the x-position of one circle from the list.
+        *
+        * @return x posistion[int]
+        */ 
         int get_circle_x_pos(int i){return circle_list[i].get_x_pos();}
 
         /**
-         * @brief Get the circle y pos object
-         * 
-         * @param i 
-         * @return int 
-         */
+        * Get the y-position of a chosen circle
+        *
+        * @brief Returns the y-position of one circle from the list.
+        *
+        * @return y posistion[int]
+        */ 
         int get_circle_y_pos(int i){return circle_list[i].get_y_pos();}
+
         /**
-         * @brief Get the circle radius object
-         * 
-         * @param i 
-         * @return int 
-         */
+        * Get the radius of a chosen circle
+        *
+        * @brief Returns the radius of one circle from the list.
+        *
+        * @return r radius[int]
+        */
         int get_circle_radius(int i){return circle_list[i].get_radius();}
-        
+
         /**
-         * @brief Get the circle color object
-         * 
-         * @param i 
-         * @return int 
-         */
+        * Gets the color of a chosen circle
+        *
+        * @brief Returns the color of one circle from the list.
+        *
+        * @return c color[int]
+        */ 
         int get_circle_color(int i){return circle_list[i].get_color();}
+
+        /**
+        * Print approximate image
+        *
+        * @brief Prints the approximated image and if image is empty, it will display an error 
+        *        message and return from it.
+        */ 
+        void print_approx_image();
+
+
+        void approximate_image();
+
+        double accuracy();
+        double precision();
+        double recall();
+        double f1_score();
+        double matthews_correlation_coefficient();
+
+        void evaluation_of_pixels(int &tp, int &tn, int &fp, int &fn);
 
 
         // ------ Algorithms ------
@@ -69,16 +94,15 @@ namespace imagecircles
         */
         void bogo_algorithm(int wanted_circles);
 
-
-        void approxinate_image();
-
-        double accuracy();
-        double precision();
-        double recall();
-        double f1_score();
-        double Matthews_correlation_coefficient();
-
-        void evaluation_of_pixels(int &tp, int &tn, int &fp, int &fn);
+        /** 
+        * Bogo algorithm modded (NOT COMPLETE)
+        *
+        * @brief This algorithm is based on bogo algorithm, but checks if the new placed circle increases it's accuracy.
+        *        Should look more like the original image, but is REALLY resource heavy.
+        *
+        * @param wanted_circles Value which speciefies the number of circles to be placed by algorithm
+        */
+        void bogo_modded(int wanted_circles);
     
 
         class Circle

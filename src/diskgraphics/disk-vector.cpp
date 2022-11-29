@@ -1,3 +1,9 @@
+
+/*
+* Copyright (c) 2022 NMBU INF205
+* Lisence: CC BY-NC-SA 4.0
+*/
+
 #include <cassert>
 
 #include "disk-vector.h"

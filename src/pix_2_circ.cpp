@@ -6,7 +6,7 @@
 
 #include <Magick++.h>
 
-// Can use image class with other features from imageconverter
+// Can use image class without imageconverter and it's features
 //#include "image.h"
 #include "imageconverter.h"
 #include "charmap.h"
@@ -23,7 +23,7 @@ int main(int argc, char *argv[])
 
   int user_input = 1;
 #if defined(terminal_input)
-  user_input = std::stoi(argv[1]);
+  user_input = std::stoi(argv[2]);
   if(user_input < 1)
   {
     std::cout << "PLEASE PROVIDE A VALID NUMBER!!!" << '\n'
@@ -35,84 +35,73 @@ int main(int argc, char *argv[])
 #endif
   std::cout << "Circles wanted: " << user_input << '\n';
 
-  std::string file_name = "batman.txt";
-  std::unique_ptr<imagecircles::ImageConverter> batman(new imagecircles::ImageConverter);
-  batman->import_image(file_name);
-  batman->print_image();
-  batman->print_dims();
+  std::string filename(argv[1]);
+  std::unique_ptr<imagecircles::ImageConverter> infile(new imagecircles::ImageConverter);
+  infile->import_image(filename);
+  infile->print_image();
+  infile->print_dims();
 
-  batman->bogo_algorithm(user_input);
-  batman->print_circles();
-
-
-  // Check pixel
-  std::cout << batman->check_pixel(26, 13) << '\n';
+  infile->bogo_modded(user_input);
+  infile->print_circles();
 
 
-  std::string file_name_2 = "kfc.txt";
-  std::unique_ptr<imagecircles::ImageConverter> kfc(new imagecircles::ImageConverter);
-  kfc->import_image(file_name_2);
-  kfc->print_image();
-  kfc->print_dims();
-
-  kfc->bogo_algorithm(user_input);
-  kfc->print_circles();
-  std::cout<< '\n' << kfc->accuracy() << '\n';
-  kfc->approxinate_image(); 
+  //std::cout<< '\n' << infile->accuracy() << '\n';
+  //infile->approxinate_image(); 
 
 
-  // Generate image output
+  // ----------------- Output code (provided) -----------------
+  // Code provided from assignment to generate image output
+
+  // Remove file prefix (.txt)
+  filename.erase(filename.length()-4, filename.length()); 
+
   diskgraphics::DiskVector dv;
-  dv.set_size(kfc->get_image_rows(), kfc->get_image_columns());
+  dv.set_size(infile->get_image_columns(), infile->get_image_rows());
   dv.set_background(255);
 
-  int amount_circles = kfc->get_amount_circles();
+  int amount_circles = infile->get_amount_circles();
   for(int i = 0; i < amount_circles; i++)
   {
     diskgraphics::Disk dsk;
-    kfc->get_circle_x_pos(i);
+    infile->get_circle_x_pos(i);
 
-    dsk.x = kfc->get_circle_x_pos(i);
-    dsk.y = kfc->get_circle_y_pos(i);
-    dsk.r = kfc->get_circle_radius(i);
-    dsk.colour = kfc->get_circle_color(i) * 255;
+    dsk.y = infile->get_circle_x_pos(i);
+    dsk.x = infile->get_circle_y_pos(i);
+    dsk.r = infile->get_circle_radius(i);
+    dsk.colour = infile->get_circle_color(i) * 255;
     dv.add_disk(dsk);
 
   }
   
 
-  // vector output
-  std::ofstream vctostrm("kfc.vct");
+  // Vector output
+  std::string filedata = filename + ".vct";
+  std::ofstream vctostrm(filedata);
   if(!vctostrm) return EXIT_FAILURE;
   vctostrm << dv;
   vctostrm.close();
   
-  // pixel conversion and output
-  //
+  // Pixel conversion and output
+  std::string infilename = filename + ".pxl";
   diskgraphics::Charmap cm(dv);
-  if(32 >= kfc->get_image_rows() || 32 >= kfc->get_image_columns() ) cm.out(&std::cout, true);  // if a small figure, also show on cout
-  std::ofstream pixostrm("kfc.pxl");
+  //if(32 >= infile->get_image_rows() || 32 >= infile->get_image_columns() ) cm.out(&std::cout, true);  // if a small figure, also show on cout
+  std::ofstream pixostrm(infilename);
   if(!pixostrm) return EXIT_FAILURE;
   pixostrm << cm;
   pixostrm.close();
 
-  std::ifstream pixistrm("kfc.pxl");
+  std::ifstream pixistrm(infilename);
   if(!pixistrm) return EXIT_FAILURE;
   diskgraphics::Charmap cn;
   pixistrm >> cn;
-  if(32 >= cn.get_sizex()) cn.out(&std::cout, true);
+  //if(32 >= cn.get_sizex()) cn.out(&std::cout, true);
   pixistrm.close();
   
 
-  
-  std::string infilename = "kfc.pxl";
-  std::string outfilename = "kfc.bmp";
-  if(argc > 1) infilename = argv[1];
-  if(argc > 2) outfilename = argv[2];
-
+  std::string outfilename = filename + ".png";
   Magick::InitializeMagick(*argv);
   Magick::Image img(Magick::Geometry(cn.get_sizex(), cn.get_sizey()), "white"); 
-  img.magick("BMP");
+  img.magick("PNG");
   img.monochrome();
   img.type(Magick::BilevelType);
   
@@ -124,7 +113,7 @@ int main(int argc, char *argv[])
     }
   }
   img.quantize(2);
-  img.write("kfc.bmp");
+  img.write(outfilename);
   
 
 

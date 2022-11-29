@@ -13,5 +13,7 @@ jobs:
 
     steps:
     - uses: actions/checkout@v3
+    - name: header_magick
+      run: sudo apt install graphicsmagick-libmagick-dev-compat libgraphicsmagick++1-dev libmagick++-6-headers
     - name: make
       run: make
