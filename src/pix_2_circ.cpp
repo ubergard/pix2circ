@@ -23,7 +23,7 @@ int main(int argc, char *argv[])
 
   int user_input = 1;
 #if defined(terminal_input)
-  user_input = std::stoi(argv[2]);
+  user_input = std::stoi(argv[3]);
   if(user_input < 1)
   {
     std::cout << "PLEASE PROVIDE A VALID NUMBER!!!" << '\n'
@@ -41,7 +41,14 @@ int main(int argc, char *argv[])
   infile->print_image();
   infile->print_dims();
 
-  infile->bogo_modded(user_input);
+  int user_algo = std::stoi(argv[2]);
+  if(user_algo == 1)
+  {
+    infile->bogo_algorithm(user_input);
+  }
+  else{
+    infile->bogo_modded(user_input);
+  }
   
   if(infile->get_amount_circles() < 50)
   {
