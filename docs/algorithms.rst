@@ -29,13 +29,10 @@ This version of the modified bogo place algorithms is set up the same way as the
 that in this version, one sets the accuracy instead of the amount of circles. The algorithm will then place out circles at random
 until the set accuracy is reached. 
 
-*Placeholder name* - The structural approach
+*Placeholder name* - Ole Benjamin sin
 -------------------------------------------------
-This algorithm will divide the image up in sections with squares, check which squares are black and which are
-white. Then it will start with the largest 'clusters' of uni-coloured squares and create the circles. 
-It will keep doing this with squares in descending/decreasing size until it is done.  
+gief info plx 
 
-**REmember to change name**
 
 .. |br| raw:: html
 

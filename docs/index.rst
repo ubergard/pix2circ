@@ -5,7 +5,8 @@
 
 Pixels to circles - Documentation by group 23
 =========================================================
-
+.. image:: images/kfcgif.gif
+   
 .. toctree::
    :maxdepth: 2
    :caption: Content:
@@ -19,5 +20,6 @@ Pixels to circles - Documentation by group 23
 
    about_us
    readme
+
 
 
