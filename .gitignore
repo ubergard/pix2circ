@@ -1,11 +1,9 @@
 # Executebles should not be included
 # Same with build files
 
-*
-!*.*
+pix_2_circ
 .vscode
 *.o
-
 *.vct
 *.pxl
 *.bmp
