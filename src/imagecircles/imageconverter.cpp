@@ -375,15 +375,6 @@ double ImageConverter::f1_score()
   return double(2 * tp)/double(2*tp + fp +fn);
 }
   
-double ImageConverter::matthews_correlation_coefficient()
-{
-  int tp = 0;
-  int tn = 0;
-  int fp = 0;
-  int fn = 0;
-  evaluation_of_pixels(tp, tn, fp, fn);
-  return double(tp*tn - fp*fn)/ double(sqrt((tp + fp) * (tp + fn)* (tn + fp)*(tn + fn) ));
-}
 
 void ImageConverter::evaluation_of_pixels(int &tp, int &tn, int &fp, int &fn)
 {
