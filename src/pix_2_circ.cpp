@@ -38,7 +38,10 @@ int main(int argc, char *argv[])
   std::string filename(argv[1]);
   std::unique_ptr<imagecircles::ImageConverter> infile(new imagecircles::ImageConverter);
   infile->import_image(filename);
-  infile->print_image();
+  if(infile->get_image_columns() < 110 && infile->get_image_rows() < 110)
+  {
+    infile->print_image();
+  }
   infile->print_dims();
 
   int user_algo = std::stoi(argv[2]);
