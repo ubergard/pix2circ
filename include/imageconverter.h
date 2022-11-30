@@ -74,7 +74,7 @@ namespace imagecircles
         /**
         * Approximate Image 
         *
-        * @brief Reset the approximation, for so interate and place all the selected circles
+        * @brief Reset the approximation, for so iterate and place all the selected circles
         */        
         void approximate_image();
 
@@ -255,6 +255,16 @@ namespace imagecircles
 
 
     private:
+        /**
+        * Progress (bar) 
+        *
+        * @brief Prints the progress, in the terminal, with a bar
+        * 
+        * @param progress Int, where it is, in the algorithm
+        * @param complete Int, the goal, user set parameter
+        */   
+        void progress(int progress, int complete);
+
         int n_circles = 100;
         int c_circles = 0;
         int run_counter = 0;
