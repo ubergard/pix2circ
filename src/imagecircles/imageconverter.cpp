@@ -1,4 +1,5 @@
 
+#include <cstdlib>
 #include <iostream>
 #include <cmath>
 
@@ -41,7 +42,7 @@ void ImageConverter::bogo_algorithm(int wanted_circles)
   }
 }
 
-void ImageConverter::bogo_modded(int accuracy_wanted)
+void ImageConverter::bogo_feedback(int accuracy_wanted)
 {
   run_counter++;
 
@@ -67,7 +68,8 @@ void ImageConverter::bogo_modded(int accuracy_wanted)
   double accuracy_perc = double(accuracy_wanted)/ double(100);
 
   int i = 1;
-  int scale_rad = 2;
+  int scale_rad = 1.5;
+  int stuck_counter = 0;
   while(accuracy_prev <= accuracy_perc)
   {
     // Set all values till random values
@@ -87,12 +89,13 @@ void ImageConverter::bogo_modded(int accuracy_wanted)
     circle_list[i].set_radius(r);
     circle_list[i].set_color(c);
 
-
+    stuck_counter++;
     double accuracy_new = accuracy();
     if (accuracy_new > accuracy_prev) 
     {
       i++;
       accuracy_prev = accuracy_new;
+      stuck_counter = 0;
     }
 
     // Scale up, if current radius don't work
@@ -106,8 +109,96 @@ void ImageConverter::bogo_modded(int accuracy_wanted)
       circle_list.clear();
       circle_list.push_back(ImageConverter::Circle(0,0,radius_limit, 0));
     }
+
+    if(stuck_counter > 100000)
+    {
+      std::cout << "Converged on accuracy : "<< accuracy_new*100 << "\n";
+      return;
+    }
+  }
+  std::cout << "Accuracy gotten : "<< accuracy_wanted << "\n";
+}
+
+void ImageConverter::directed_random_place(int wanted_circles){
+  n_circles = wanted_circles;
+  run_counter++;
+  srand(time(NULL)+run_counter);
+
+  int rows = dims[0];
+  int columns = dims[1];
+  int radius_limit = sqrt(rows*rows+columns*columns);
+  
+  if(!circle_list.empty())
+  {
+    circle_list.clear();
+    circle_list.shrink_to_fit();
+  }
+
+  c_circles = 0;
+  circle_list.push_back(ImageConverter::Circle(0,0,radius_limit, 0));
+  c_circles++;
+
+  int i = 0;
+  int no_progress = 0;
+  int r = radius_limit;
+
+  double accuracy_prev = 0;
+  double accuracy_new = 0;
+  while(i < wanted_circles) 
+  {
+    //int r = radius_limit / wanted_circles + 2;
+    int y = rand() % columns + 1;
+    int x = rand() % rows + 1;
+
+    if(c_circles == i)
+    {
+      circle_list.push_back(ImageConverter::Circle(x,y,r,0));
+      c_circles++;
+    }
+    circle_list[i].set_x_pos(x);
+    circle_list[i].set_y_pos(y);
+    circle_list[i].set_radius(r); 
+    
+    circle_list[i].set_color(0);
+    double black_acc = accuracy();
+
+    circle_list[i].set_color(1);
+    double white_acc = accuracy();
+
+    if (white_acc > black_acc) 
+    {
+      accuracy_new = white_acc;
+    } else 
+    {
+      circle_list[i].set_color(0);
+      accuracy_new = black_acc;
+    }
+
+    if (accuracy_new > accuracy_prev) 
+    {
+      i++;
+      accuracy_prev = accuracy_new;
+      no_progress = 0;
+    } else
+    {
+      no_progress++;
+    }
+
+    if (no_progress > 500 && r>2) 
+    {
+      no_progress = 0;
+      r--;
+    }
+    
+    if (no_progress > 501) 
+    {
+      int number_of_circles = circle_list.size();
+      std::cout << '\n' << "Numbers of circls: " << number_of_circles << '\n';
+      break;
+    }
   }
 }
+
 
 void ImageConverter::print_circles()
 {

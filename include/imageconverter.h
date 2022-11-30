@@ -102,7 +102,9 @@ namespace imagecircles
         *
         * @param accuracy_wanted Value which speciefies the accuracy threshold
         */
-        void bogo_modded(int accuracy_wanted);
+        void bogo_feedback(int accuracy_wanted);
+
+        void directed_random_place(int wanted_circles);
     
 
         class Circle
