@@ -34,9 +34,13 @@ to 'pick and place' with *x* amount of circles for subpar results with the Circl
 
 **Directed random place**  |br|
 This algorithm has two main changes from the Bogo feedback, for every circle, the algorithm will iterate through *n* number
-of circles of the biggest size. For every circle it compares the difference by placing a white or black circle. 
+of circles of the biggest size. For every circle, it compares the difference by placing a white or black circle. 
 When it places a circle, *n* will be set to 0, if it does not, it will change *n* to 1. 
 When the radius is 1, it will iterate through until it cannot find any more circles to place after *n+1* attempts. 
+This algorithm takes longer to compute than the other two algorithms, but it is a more thorough algorithm than the others.
+It breaks the process in the area of 820-900 circles as it seems like it is happy with the results that is achieved by then.  |br|
+
+.. image:: images/kfc_test_direct_group.png
 
 
 
