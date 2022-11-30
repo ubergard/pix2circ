@@ -42,7 +42,7 @@ void ImageConverter::bogo_algorithm(int wanted_circles)
   }
 }
 
-void ImageConverter::bogo_modded(int accuracy_wanted)
+void ImageConverter::bogo_feedback(int accuracy_wanted)
 {
   run_counter++;
 
@@ -119,7 +119,7 @@ void ImageConverter::bogo_modded(int accuracy_wanted)
   std::cout << "Accuracy gotten : "<< accuracy_wanted << "\n";
 }
 
-void ImageConverter::random_place_algo(int wanted_circles){
+void ImageConverter::directed_random_place(int wanted_circles){
   n_circles = wanted_circles;
   run_counter++;
   srand(time(NULL)+run_counter);

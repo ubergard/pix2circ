@@ -48,11 +48,11 @@ int main(int argc, char *argv[])
   }
   else if(user_algo == 2)
   {
-    infile->random_place_algo(user_input);
+    infile->directed_random_place(user_input);
   }
   else
   {
-    infile->bogo_modded(user_input);
+    infile->bogo_feedback(user_input);
   }
   
   if(infile->get_amount_circles() < 50)
