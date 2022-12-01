@@ -39,11 +39,20 @@ void ImageConverter::bogo_algorithm(int wanted_circles)
 
     c_circles++;
     circle_list.push_back(ImageConverter::Circle(x,y,r,c));
+
+    if(i % int(wanted_circles/10) == 0)
+    {
+      progress_bar(i, wanted_circles);
+    }
   }
 }
 
 void ImageConverter::bogo_feedback(int accuracy_wanted)
 {
+  if(accuracy_wanted > 100)
+  {
+    accuracy_wanted = 100;
+  }
   run_counter++;
 
   int rows = dims[0];
@@ -70,6 +79,7 @@ void ImageConverter::bogo_feedback(int accuracy_wanted)
   int i = 1;
   int scale_rad = 1.5;
   int stuck_counter = 0;
+  int finished = 0; 
   while(accuracy_prev <= accuracy_perc)
   {
     // Set all values till random values
@@ -96,6 +106,11 @@ void ImageConverter::bogo_feedback(int accuracy_wanted)
       i++;
       accuracy_prev = accuracy_new;
       stuck_counter = 0;
+      if(accuracy_new*10 > finished)
+      {
+        progress_bar(int(accuracy_prev*100), accuracy_wanted);
+        finished++;
+      }
     }
 
     // Scale up, if current radius don't work
@@ -168,7 +183,8 @@ void ImageConverter::directed_random_place(int wanted_circles){
     if (white_acc > black_acc) 
     {
       accuracy_new = white_acc;
-    } else 
+    } 
+    else 
     {
       circle_list[i].set_color(0);
       accuracy_new = black_acc;
@@ -179,7 +195,12 @@ void ImageConverter::directed_random_place(int wanted_circles){
       i++;
       accuracy_prev = accuracy_new;
       no_progress = 0;
-    } else
+      if(i % int(wanted_circles/10) == 00)
+      {
+        progress_bar(i, wanted_circles);
+      }
+    } 
+    else
     {
       no_progress++;
     }
@@ -199,6 +220,24 @@ void ImageConverter::directed_random_place(int wanted_circles){
   }
 }
 
+void ImageConverter::progress_bar(int progress, int complete)
+{
+  double work_done = double(progress)/double(complete)*10;
+
+  std::cout << "[";
+  for(int i = 1; i < 10; i++)
+  {
+    if(i < work_done)
+    {
+      std::cout << "=";
+    }
+    else
+    {
+      std::cout << " ";
+    }
+  }
+  std::cout << "]" << "\n" ;
+}
 
 void ImageConverter::print_circles()
 {
@@ -375,15 +414,6 @@ double ImageConverter::f1_score()
   return double(2 * tp)/double(2*tp + fp +fn);
 }
   
-double ImageConverter::matthews_correlation_coefficient()
-{
-  int tp = 0;
-  int tn = 0;
-  int fp = 0;
-  int fn = 0;
-  evaluation_of_pixels(tp, tn, fp, fn);
-  return double(tp*tn - fp*fn)/ double(sqrt((tp + fp) * (tp + fn)* (tn + fp)*(tn + fn) ));
-}
 
 void ImageConverter::evaluation_of_pixels(int &tp, int &tn, int &fp, int &fn)
 {
