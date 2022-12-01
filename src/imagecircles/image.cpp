@@ -115,7 +115,7 @@ void Image::print_image(){
 
 bool Image::is_image_imported()
 {
-  if(!dims[1] || !dims[0] || !img_vector[0][0])
+  if(!dims[1] || !dims[0])
   {
     std::cout << "Please import the image first!!!" << '\n';
     return false;
