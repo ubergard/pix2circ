@@ -38,7 +38,10 @@ int main(int argc, char *argv[])
   std::string filename(argv[1]);
   std::unique_ptr<imagecircles::ImageConverter> infile(new imagecircles::ImageConverter);
   infile->import_image(filename);
-  infile->print_image();
+  if(infile->get_image_columns() < 110 && infile->get_image_rows() < 110)
+  {
+    infile->print_image();
+  }
   infile->print_dims();
 
   int user_algo = std::stoi(argv[2]);
@@ -46,8 +49,13 @@ int main(int argc, char *argv[])
   {
     infile->bogo_algorithm(user_input);
   }
-  else{
-    infile->bogo_modded(user_input);
+  else if(user_algo == 2)
+  {
+    infile->directed_random_place(user_input);
+  }
+  else
+  {
+    infile->bogo_feedback(user_input);
   }
   
   if(infile->get_amount_circles() < 50)

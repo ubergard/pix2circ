@@ -71,15 +71,48 @@ namespace imagecircles
         */ 
         void print_approx_image();
 
-
+        /**
+        * Approximate Image 
+        *
+        * @brief Reset the approximation, for so iterate and place all the selected circles
+        */        
         void approximate_image();
 
-        double accuracy();
-        double precision();
-        double recall();
-        double f1_score();
-        double matthews_correlation_coefficient();
 
+        /**
+        * Accuracy 
+        *
+        * @brief Compare true predictions to total of predictions
+        */        
+        double accuracy();
+
+        /**
+        * Precision 
+        *
+        * @brief Compare true posetiv to total posetiv predictions
+        */    
+        double precision();
+
+        /**
+        * recall 
+        *
+        * @brief Compare True posetiv to ture posetiv and actural posetiv
+        */
+        double recall();
+
+        /**
+        * F1 Score  
+        *
+        * @brief Compare true posetive approximation with all posetiv approximation and all False approximation
+        */
+        double f1_score();
+
+
+        /**
+        * Evaluation of pixls 
+        *
+        * @brief Compare original image with approximate image. Calculate True posetiv(=1) pixels, True Negativ(=0) pixels, False Negativ pixel, False Posetiv pixel
+        */        
         void evaluation_of_pixels(int &tp, int &tn, int &fp, int &fn);
 
 
@@ -95,14 +128,27 @@ namespace imagecircles
         void bogo_algorithm(int wanted_circles);
 
         /** 
-        * Bogo algorithm modded
+        * Bogo feedback
         *
         * @brief This algorithm is based on bogo algorithm, but checks if accuracy increases, and if it does, 
         *        it will keep the circle. It many circles is needed, it will scale the circles down.        
         *
         * @param accuracy_wanted Value which speciefies the accuracy threshold
         */
-        void bogo_modded(int accuracy_wanted);
+        void bogo_feedback(int accuracy_wanted);
+
+
+        /** 
+        * Directed random place
+        *
+        * @brief This algorithm is based on bogo algorithm bogo, but with addtional stratergies for
+        *        radius and color. The circles color is based on the highest improvment of accuracy.
+        *        it bases the iteration on a condtion of sucsesiv placment of circles. For each size of 
+        *        radius there will be n trials of placement. When this number i reached radius is reduced by 1.
+        *        When radius is 1 and n numbers of trials are done. The loop is terminated
+        */
+
+        void directed_random_place(int wanted_circles);
     
 
         class Circle
@@ -209,6 +255,16 @@ namespace imagecircles
 
 
     private:
+        /**
+        * Progress (bar) 
+        *
+        * @brief Prints the progress, in the terminal, with a bar
+        * 
+        * @param progress Int, where it is, in the algorithm
+        * @param complete Int, the goal, user set parameter
+        */   
+        void progress_bar(int progress, int complete);
+
         int n_circles = 100;
         int c_circles = 0;
         int run_counter = 0;
