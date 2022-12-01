@@ -64,7 +64,8 @@ This will run the *bogo feedback* algorithm, on the kfc image, with 99% accuracy
 
 
 **Documentation** |br|
-The work we have done is documented using Sphinx, change directory to the *docs* directory and make the documentation,
+The work is documented using Sphinx, it is expected and required that Sphinx is set up to view the documentation. 
+change directory to the *docs* directory and make the documentation,
 followed by changing directory to *html* via the *_build* directory and open the index.html file. |br|
 
 :: 

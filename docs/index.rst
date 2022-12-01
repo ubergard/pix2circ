@@ -25,9 +25,9 @@ Pixels to circles - Documentation by group 23
 
 
    improv
-   contributions
-   about_us
    readme
+   about_us
+   contributions
 
 
 
