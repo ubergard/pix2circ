@@ -19,8 +19,9 @@ The first version of the modified bogo place. This one work with somewhat the sa
 it has more focus on accuracy. This version places a set amount of circles. The biggest issue with this algorithm is that 
 it might use alot of time to finish the image if too many circles is set, as shown in results. |br|
 
-.. note:: The code for this version is not detailed in 'Scripts' or 'Code documentation' because it was a 'first draft' kind of thing
-.. note:: It is very similar to the second version - the accuracy one, which is the one we ended up using.
+.. note:: 
+   The code for this version is not detailed in 'Scripts' or 'Code documentation' because it was a 'first draft' kind of thing.
+   It is very similar to the second version - the accuracy one, which is the one we ended up using.
 
 
 Bogo feedback - Accuracy version
@@ -31,8 +32,10 @@ until the set accuracy is reached.
 
 Directed random place 
 -------------------------------------------------
-gief info plx 
-
+This algorithm is based on the bogo algorithm, but with addtional strategies for radius and color. 
+The circles color is based on the highest improvement of accuracy. it bases the iteration on a condition if 
+successive placement of circles. For each size of radius there will be n trials of placement. When this number 
+is reached, radius is reduced by 1. When radius is 1 and n numbers of trials are done, the loop will be terminated.
 
 .. |br| raw:: html
 

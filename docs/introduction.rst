@@ -44,8 +44,6 @@ Our **method** to deal with the task at hand was to create 3 main classes, namel
 +------------------+----------------------+----------------------+
 
 
-
-
 .. |br| raw:: html
 
    <br />
