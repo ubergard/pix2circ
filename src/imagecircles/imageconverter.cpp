@@ -42,7 +42,7 @@ void ImageConverter::bogo_algorithm(int wanted_circles)
 
     if(i % int(wanted_circles/10) == 0)
     {
-      progress(i, wanted_circles);
+      progress_bar(i, wanted_circles);
     }
   }
 }
@@ -108,7 +108,7 @@ void ImageConverter::bogo_feedback(int accuracy_wanted)
       stuck_counter = 0;
       if(accuracy_new*10 > finished)
       {
-        progress(int(accuracy_prev*100), accuracy_wanted);
+        progress_bar(int(accuracy_prev*100), accuracy_wanted);
         finished++;
       }
     }
@@ -197,7 +197,7 @@ void ImageConverter::directed_random_place(int wanted_circles){
       no_progress = 0;
       if(i % int(wanted_circles/10) == 00)
       {
-        progress(i, wanted_circles);
+        progress_bar(i, wanted_circles);
       }
     } 
     else
@@ -220,7 +220,7 @@ void ImageConverter::directed_random_place(int wanted_circles){
   }
 }
 
-void ImageConverter::progress(int progress, int complete)
+void ImageConverter::progress_bar(int progress, int complete)
 {
   double work_done = double(progress)/double(complete)*10;
 

@@ -263,7 +263,7 @@ namespace imagecircles
         * @param progress Int, where it is, in the algorithm
         * @param complete Int, the goal, user set parameter
         */   
-        void progress(int progress, int complete);
+        void progress_bar(int progress, int complete);
 
         int n_circles = 100;
         int c_circles = 0;
