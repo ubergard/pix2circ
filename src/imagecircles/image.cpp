@@ -58,7 +58,7 @@ void Image::image_make(std::string file_name)
 
   for (int m = 0; m < dims[0]; m++) 
   {
-    img_vector.push_back(std::vector<int>());
+    img_vector.push_back(std::vector<bool>());
     std::getline(image_file, line);
     for (int n = 0; n < dims[1]; n++) 
     {
