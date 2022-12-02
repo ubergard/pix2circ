@@ -22,7 +22,7 @@ Change directory to our pix2circ directory and build it by using *make*: |br|
 
 
 We have 3 working algorithms you can choose from. We have assigned numbers to chose which algorithm you want to use. 
-We have prepared two binary images, the batman logo and the kfc logo, converted them into 0's and 1's and exported them 
+We have added two images, the batman logo and the kfc logo, converted them into 0's and 1's and exported them 
 to a .txt file. Namely batman.txt and kfc.txt, the batman logo is a bit small, the results are shown better with the 
 kfc image. |br|
 
@@ -30,8 +30,8 @@ Bogo place            :1 |br|
 Directed random place :2 |br|
 Bogo feedback         :3 |br|
 
-The different algorithms work in different ways, for Bogo place and the *placeholder* name algorithms, 
-you have to assign how many circles you want to run with. For the modified bogo place, 
+The different algorithms work in different ways, for Bogo place and the *Directed random place* algorithms, 
+you have to assign how many circles you want to run with. For the *Bogo feedback - accuracy*, 
 you assign the accuracy that you want it to run with, with a number between 1-99, the higher the number, 
 the better accuracy you will get. After you have run the program, it will generate a .png image in the pix2circ folder. |br|  
 

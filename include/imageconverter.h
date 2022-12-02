@@ -111,7 +111,8 @@ namespace imagecircles
         /**
         * Evaluation of pixls 
         *
-        * @brief Compare original image with approximate image. Calculate True posetiv(=1) pixels, True Negativ(=0) pixels, False Negativ pixel, False Posetiv pixel
+        * @brief Compare original image with approximate image. Calculate True positive(=1) 
+        * pixels, True Negativ(=0) pixels, False Negative pixel, False Positive pixel
         */        
         void evaluation_of_pixels(int &tp, int &tn, int &fp, int &fn);
 
@@ -143,9 +144,9 @@ namespace imagecircles
         *
         * @brief This algorithm is based on bogo algorithm bogo, but with addtional stratergies for
         *        radius and color. The circles color is based on the highest improvment of accuracy.
-        *        it bases the iteration on a condtion of sucsesiv placment of circles. For each size of 
-        *        radius there will be n trials of placement. When this number i reached radius is reduced by 1.
-        *        When radius is 1 and n numbers of trials are done. The loop is terminated
+        *        it bases the iteration on a condition of succesful placement of circles. For each size of 
+        *        radius there will be n trials of placement. When this number isreached, radius is reduced by 1.
+        *        When radius is 1 and n numbers of trials are done, the loop is terminated
         */
 
         void directed_random_place(int wanted_circles);
@@ -234,7 +235,7 @@ namespace imagecircles
             void set_color(int c) { this->color = c; }
 
             /**
-            * Check circle (NOT COMPLETE)
+            * Check circle 
             *
             * @brief Function too check the area, which the circle is placed.
             *        Will store relevant data.
