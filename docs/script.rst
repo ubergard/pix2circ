@@ -4,7 +4,7 @@ Scripts
 
 
 Related to Image
-==================
+---------------------
 
 ``Image.cpp`` 
 
@@ -17,7 +17,7 @@ Related to Image
 
 
 Related to ImageConverter
-===============================
+------------------------------
 
 ``imageconverter.cpp`` 
 
@@ -30,7 +30,7 @@ Related to ImageConverter
 
 
 Related to Circle
-====================
+------------------------
 
 ``imageconverter.cpp`` Circle class
 
