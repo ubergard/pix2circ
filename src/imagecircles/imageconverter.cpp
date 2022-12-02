@@ -417,8 +417,8 @@ double ImageConverter::f1_score()
 
 void ImageConverter::evaluation_of_pixels(int &tp, int &tn, int &fp, int &fn)
 {
-// we asume that black is is forgraound and call it posetive
-// the opesit goes for white, backgorund is white and therfor negative 
+// we assume that black is forground and call it positive
+// the opposite goes for white, background is white and therefore negative 
   int m = dims[0];
   int n = dims[1];
   tp = 0;

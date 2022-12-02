@@ -5,6 +5,12 @@
 
 Pixels to circles - Documentation by group 23
 =========================================================
+.. image:: images/kfcgif.gif
+   :align: left
+.. image:: images/kfc_directgif.gif
+   :align: right
+.. image:: images/kfc_noisegif.gif
+   :align: center
 
 .. toctree::
    :maxdepth: 2
@@ -14,10 +20,14 @@ Pixels to circles - Documentation by group 23
    algorithms
    code_doc
    results
-   script 
+   script
 
 
-   about_us
+
+   improv
    readme
+   about_us
+   copy_lic
+
 
 
