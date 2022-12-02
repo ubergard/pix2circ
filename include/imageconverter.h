@@ -247,7 +247,7 @@ namespace imagecircles
             int x_pos;
             int y_pos;
             int radius;
-            int color;
+            bool color;
 
             int size = 0;
 
@@ -269,7 +269,7 @@ namespace imagecircles
         int c_circles = 0;
         int run_counter = 0;
 
-        std::vector<std::vector<int>> approx_image;
+        std::vector<std::vector<bool>> approx_image;
         std::vector<Circle> circle_list;
     };
 }

@@ -63,13 +63,15 @@ int main(int argc, char *argv[])
     infile->print_circles();
   }
 
+  //std::cout << "Pixel: " << infile->check_pixel(10, 10) << '\n';
+
   std::cout << "Circles generated: " << infile->get_amount_circles() << '\n';
 
   //std::cout<< '\n' << infile->accuracy() << '\n';
   //infile->approxinate_image(); 
 
 
-  // ----------------- Output code (provided) -----------------
+  // ----------------- Output code (Provided, but modified!) -----------------
   // Code provided from assignment to generate image output
 
   // Remove file prefix (.txt)

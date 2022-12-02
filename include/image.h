@@ -110,7 +110,7 @@ namespace imagecircles
     std::string image_name;
     int dims[2] = {0, 0};
 
-    std::vector<std::vector<int>> img_vector;
+    std::vector<std::vector<bool>> img_vector;
   };
 }
 

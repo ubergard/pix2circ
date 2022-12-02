@@ -114,7 +114,7 @@ void ImageConverter::bogo_feedback(int accuracy_wanted)
     }
 
     // Scale up, if current radius don't work
-    if(i >= scale_rad)
+    if(i >= scale_rad && r > 1)
     {
       i = 1;
       c_circles = 1;
@@ -125,7 +125,7 @@ void ImageConverter::bogo_feedback(int accuracy_wanted)
       circle_list.push_back(ImageConverter::Circle(0,0,radius_limit, 0));
     }
 
-    if(stuck_counter > 100000)
+    if(stuck_counter > 10000)
     {
       std::cout << "Converged on accuracy : "<< accuracy_new*100 << "\n";
       return;
@@ -306,12 +306,12 @@ void ImageConverter::print_approx_image(){
 }
 
 void ImageConverter::approximate_image(){
-  std::vector<std::vector<int>> approx_image_swap;
+  std::vector<std::vector<bool>> approx_image_swap;
   approx_image.swap(approx_image_swap);
 
   for (int m = 0; m < dims[0]; m++) 
   {
-    approx_image.push_back(std::vector<int>());
+    approx_image.push_back(std::vector<bool>());
     for (int n = 0; n < dims[1]; n++)
     {
       approx_image[m].push_back(0);

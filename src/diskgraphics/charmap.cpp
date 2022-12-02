@@ -1,7 +1,9 @@
 
 /*
-* Copyright (c) 2022 NMBU INF205
-* Lisence: CC BY-NC-SA 4.0
+* Copyright (c) 2022 HELD BY Martin Thomas Horsch
+* Licence: CC BY-NC-SA 4.0
+*
+* WE DID NOT MAKE THIS CODE!
 */
 
 #include "charmap.h"
