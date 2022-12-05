@@ -85,7 +85,7 @@ TO
 
 ```
 html_theme = 'sphinxdoc'
-
+``` 
 
 When these steps are done, change directory to the *docs* directory and build the documentation,
 followed by changing directory to *html* via the *_build* directory and open the index.html file. 
